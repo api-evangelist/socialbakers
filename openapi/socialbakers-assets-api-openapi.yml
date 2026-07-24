@@ -1,0 +1,255 @@
+openapi: 3.1.0
+info:
+  title: Emplifi (Socialbakers) Public Ads Assets API
+  version: '3'
+  description: 'The Emplifi Public API (v3) — formerly the Socialbakers API — provides programmatic access to social media analytics, published content, profile and post metrics, community engagement, social listening, Facebook Ads, digital asset management (Assets), and customer care (Care) data across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat. Socialbakers rebranded to Emplifi in 2021; this API is the successor to the original Socialbakers Public API. Requests are authenticated with HTTP Basic auth (API token:secret) or OAuth 2.0 authorization code flow. Metrics and posts endpoints accept a JSON query body (profiles, metrics, date range) and return a `{ "success": true, ... }` envelope.'
+  contact:
+    name: Emplifi API Support
+    url: https://api.emplifi.io/
+  x-apievangelist:
+    method: derived
+    source: https://api.emplifi.io/ (Emplifi API v3 documentation) + https://github.com/Emplifi/public-api-tableau-wdc
+    note: Derived from the published Emplifi Public API documentation and the official Emplifi public-api-tableau-wdc connector source. Endpoint paths, methods, auth schemes and the response envelope are taken from those public sources; request/response schemas are representative, not verbatim.
+servers:
+- url: https://api.emplifi.io
+  description: Emplifi Public API production
+security:
+- basicAuth: []
+- oauth2: []
+tags:
+- name: Assets
+  description: Digital asset management — collections and assets
+paths:
+  /3/collections:
+    get:
+      operationId: listCollections
+      summary: List asset collections
+      tags:
+      - Assets
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createCollection
+      summary: Create an asset collection
+      tags:
+      - Assets
+      requestBody:
+        $ref: '#/components/requestBodies/Query'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /3/collections/{id}:
+    put:
+      operationId: editCollection
+      summary: Edit an asset collection
+      tags:
+      - Assets
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      requestBody:
+        $ref: '#/components/requestBodies/Query'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteCollection
+      summary: Delete an asset collection
+      tags:
+      - Assets
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /3/collections/{id}/archive:
+    post:
+      operationId: archiveCollection
+      summary: Archive an asset collection
+      tags:
+      - Assets
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /3/collections/{id}/restore:
+    post:
+      operationId: restoreCollection
+      summary: Restore an archived asset collection
+      tags:
+      - Assets
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /3/assets:
+    get:
+      operationId: getAssets
+      summary: List assets
+      tags:
+      - Assets
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /3/assets/upload:
+    post:
+      operationId: uploadAsset
+      summary: Upload an asset
+      tags:
+      - Assets
+      requestBody:
+        $ref: '#/components/requestBodies/Query'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/ValidationError'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /3/assets/{id}:
+    put:
+      operationId: editAsset
+      summary: Edit an asset
+      tags:
+      - Assets
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      requestBody:
+        $ref: '#/components/requestBodies/Query'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteAsset
+      summary: Delete an asset
+      tags:
+      - Assets
+      parameters:
+      - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    Success:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SuccessEnvelope'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    ValidationError:
+      description: Input validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier
+      schema:
+        type: string
+  schemas:
+    ErrorEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          const: false
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: integer
+              errors:
+                type: array
+                items:
+                  type: string
+      required:
+      - success
+      - errors
+    SuccessEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          const: true
+        header:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        data: {}
+      required:
+      - success
+  requestBodies:
+    Query:
+      required: false
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authorization. Credentials are your Emplifi API `token` and `secret`, base64-encoded as `token:secret`.
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code flow. Create a Custom integration in Emplifi Settings to obtain client credentials.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.emplifi.io/oauth2/0/auth
+          tokenUrl: https://api.emplifi.io/oauth2/0/token
+          scopes: {}

@@ -1,0 +1,183 @@
+openapi: 3.1.0
+info:
+  title: Emplifi (Socialbakers) Public Ads Reference API
+  version: '3'
+  description: 'The Emplifi Public API (v3) — formerly the Socialbakers API — provides programmatic access to social media analytics, published content, profile and post metrics, community engagement, social listening, Facebook Ads, digital asset management (Assets), and customer care (Care) data across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat. Socialbakers rebranded to Emplifi in 2021; this API is the successor to the original Socialbakers Public API. Requests are authenticated with HTTP Basic auth (API token:secret) or OAuth 2.0 authorization code flow. Metrics and posts endpoints accept a JSON query body (profiles, metrics, date range) and return a `{ "success": true, ... }` envelope.'
+  contact:
+    name: Emplifi API Support
+    url: https://api.emplifi.io/
+  x-apievangelist:
+    method: derived
+    source: https://api.emplifi.io/ (Emplifi API v3 documentation) + https://github.com/Emplifi/public-api-tableau-wdc
+    note: Derived from the published Emplifi Public API documentation and the official Emplifi public-api-tableau-wdc connector source. Endpoint paths, methods, auth schemes and the response envelope are taken from those public sources; request/response schemas are representative, not verbatim.
+servers:
+- url: https://api.emplifi.io
+  description: Emplifi Public API production
+security:
+- basicAuth: []
+- oauth2: []
+tags:
+- name: Reference
+  description: Managed profiles, labels, label groups, listening queries, ad accounts
+paths:
+  /3/{network}/profiles:
+    get:
+      operationId: listProfiles
+      summary: List managed profiles for a network
+      tags:
+      - Reference
+      parameters:
+      - $ref: '#/components/parameters/Network'
+      responses:
+        '200':
+          description: List of managed profiles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessEnvelope'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /3/profile/labels:
+    get:
+      operationId: getProfileLabels
+      summary: List profile labels
+      tags:
+      - Reference
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /3/post/labels:
+    get:
+      operationId: getPostLabels
+      summary: List post labels
+      tags:
+      - Reference
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /3/post/label-groups:
+    get:
+      operationId: getPostLabelGroups
+      summary: List post label groups
+      tags:
+      - Reference
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /3/listening/queries:
+    get:
+      operationId: getListeningQueries
+      summary: List configured social listening queries
+      tags:
+      - Reference
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /3/ads/accounts:
+    post:
+      operationId: listAdAccounts
+      summary: List connected ad accounts
+      tags:
+      - Reference
+      requestBody:
+        $ref: '#/components/requestBodies/Query'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    Success:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SuccessEnvelope'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+  schemas:
+    ErrorEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          const: false
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: integer
+              errors:
+                type: array
+                items:
+                  type: string
+      required:
+      - success
+      - errors
+    SuccessEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          const: true
+        header:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        data: {}
+      required:
+      - success
+  parameters:
+    Network:
+      name: network
+      in: path
+      required: true
+      description: Social network key
+      schema:
+        type: string
+        enum:
+        - facebook
+        - instagram
+        - twitter
+        - youtube
+        - linkedin
+        - pinterest
+        - tiktok
+        - snapchat
+  requestBodies:
+    Query:
+      required: false
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authorization. Credentials are your Emplifi API `token` and `secret`, base64-encoded as `token:secret`.
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code flow. Create a Custom integration in Emplifi Settings to obtain client credentials.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.emplifi.io/oauth2/0/auth
+          tokenUrl: https://api.emplifi.io/oauth2/0/token
+          scopes: {}

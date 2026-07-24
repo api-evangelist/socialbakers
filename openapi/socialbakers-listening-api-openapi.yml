@@ -1,0 +1,152 @@
+openapi: 3.1.0
+info:
+  title: Emplifi (Socialbakers) Public Ads Listening API
+  version: '3'
+  description: 'The Emplifi Public API (v3) — formerly the Socialbakers API — provides programmatic access to social media analytics, published content, profile and post metrics, community engagement, social listening, Facebook Ads, digital asset management (Assets), and customer care (Care) data across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat. Socialbakers rebranded to Emplifi in 2021; this API is the successor to the original Socialbakers Public API. Requests are authenticated with HTTP Basic auth (API token:secret) or OAuth 2.0 authorization code flow. Metrics and posts endpoints accept a JSON query body (profiles, metrics, date range) and return a `{ "success": true, ... }` envelope.'
+  contact:
+    name: Emplifi API Support
+    url: https://api.emplifi.io/
+  x-apievangelist:
+    method: derived
+    source: https://api.emplifi.io/ (Emplifi API v3 documentation) + https://github.com/Emplifi/public-api-tableau-wdc
+    note: Derived from the published Emplifi Public API documentation and the official Emplifi public-api-tableau-wdc connector source. Endpoint paths, methods, auth schemes and the response envelope are taken from those public sources; request/response schemas are representative, not verbatim.
+servers:
+- url: https://api.emplifi.io
+  description: Emplifi Public API production
+security:
+- basicAuth: []
+- oauth2: []
+tags:
+- name: Listening
+  description: Social listening content and metrics
+paths:
+  /3/listening/content:
+    get:
+      operationId: getListeningContent
+      summary: List social listening content
+      tags:
+      - Listening
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /3/listening/metrics:
+    post:
+      operationId: getListeningMetrics
+      summary: Social listening metrics
+      tags:
+      - Listening
+      requestBody:
+        $ref: '#/components/requestBodies/MetricsQuery'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimited'
+components:
+  responses:
+    RateLimited:
+      description: Rate limit exceeded (1000 req/hour account, 500 req/hour user)
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
+    Success:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SuccessEnvelope'
+  requestBodies:
+    MetricsQuery:
+      required: true
+      description: Metrics query — profiles, metrics and a date range (max 100 profiles, 25 metrics, 12-month range).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/MetricsQuery'
+  schemas:
+    MetricsQuery:
+      type: object
+      properties:
+        profiles:
+          type: array
+          maxItems: 100
+          items:
+            type: string
+        metrics:
+          type: array
+          maxItems: 25
+          items:
+            type: string
+        dimensions:
+          type: array
+          items:
+            type: string
+        date_start:
+          type: string
+          format: date
+        date_end:
+          type: string
+          format: date
+      required:
+      - profiles
+      - metrics
+      - date_start
+      - date_end
+    ErrorEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          const: false
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: integer
+              errors:
+                type: array
+                items:
+                  type: string
+      required:
+      - success
+      - errors
+    SuccessEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          const: true
+        header:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        data: {}
+      required:
+      - success
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic authorization. Credentials are your Emplifi API `token` and `secret`, base64-encoded as `token:secret`.
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authorization code flow. Create a Custom integration in Emplifi Settings to obtain client credentials.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.emplifi.io/oauth2/0/auth
+          tokenUrl: https://api.emplifi.io/oauth2/0/token
+          scopes: {}
