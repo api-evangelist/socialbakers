@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.emplifi.io/
+docs: https://api.emplifi.io/
+note: >-
+  The Emplifi (Socialbakers) Public API v3 supports OAuth 2.0 authorization
+  code flow (Custom integration in Emplifi Settings). The published
+  documentation does not enumerate a named OAuth scope catalog — access is
+  governed by the integration's granted product permissions rather than
+  request-time scopes. Recorded here so the OAuth surface is discoverable;
+  no fabricated scope strings are included.
+schemes:
+  - name: oauth2
+    source: https://api.emplifi.io/
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://api.emplifi.io/oauth2/0/auth
+        tokenUrl: https://api.emplifi.io/oauth2/0/token
+        revocationUrl: https://api.emplifi.io/oauth2/0/token/revocation
+scopes: []

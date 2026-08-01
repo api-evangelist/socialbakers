@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.emplifi.io/
+docs: https://api.emplifi.io/
+authentication:
+  styles: [http-basic, oauth2-authorization-code]
+  ref: authentication/socialbakers-authentication.yml
+request_model:
+  note: >-
+    Metrics and posts queries are issued as POST requests carrying a JSON body
+    (profiles, metrics, dimensions, date_start, date_end). Reference data
+    (profiles, labels, queries) is retrieved with GET. Content-Type is
+    application/json; charset=utf-8.
+  consumer_header: x-api-consumer
+pagination:
+  style: cursor
+  applies_to: posts endpoints (per-network posts/videos/tweets)
+  response_fields: [next, remaining]
+  page_size_max: 100
+  note: >-
+    Posts endpoints return up to 100 items per request with `next` (cursor to
+    the following page) and `remaining` (items left) in the response.
+idempotency:
+  supported: false
+  note: >-
+    The API documents no idempotency-key header. Read/metrics operations are
+    naturally idempotent (POST-as-query); Assets write operations
+    (create/edit/delete/archive/restore) are not documented as idempotent.
+error_envelope:
+  shape: '{ "success": false, "errors": [ { "code": <int>, "errors": [<string>] } ] }'
+  success_flag: success
+  format: custom-json
+  ref: errors/socialbakers-error-codes.yml
+  note: Not RFC 9457 problem+json; errors are surfaced in a `success`/`errors` envelope.
+success_envelope:
+  shape: '{ "success": true, "header": [...], "data": ... }'
+versioning:
+  scheme: uri-path
+  current: '3'
+  ref: lifecycle/socialbakers-lifecycle.yml
+rate_limiting:
+  ref: rate-limits/socialbakers-rate-limits.yml
+  note: Hourly account (1000) and user (500) quotas; 429 on exceed.
+metadata:
+  networks: [facebook, instagram, twitter, youtube, linkedin, pinterest, tiktok, snapchat]

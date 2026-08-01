@@ -1,0 +1,28 @@
+{
+  "provider": "socialbakers",
+  "sources": [
+    "socialbakers-ads-api-openapi.yml",
+    "socialbakers-assets-api-openapi.yml",
+    "socialbakers-care-api-openapi.yml",
+    "socialbakers-community-api-openapi.yml",
+    "socialbakers-listening-api-openapi.yml",
+    "socialbakers-posts-api-openapi.yml",
+    "socialbakers-profile-metrics-api-openapi.yml",
+    "socialbakers-reference-api-openapi.yml"
+  ],
+  "outputs": [
+    "socialbakers-ads-api-openapi.yml",
+    "socialbakers-assets-api-openapi.yml",
+    "socialbakers-care-api-openapi.yml",
+    "socialbakers-community-api-openapi.yml",
+    "socialbakers-listening-api-openapi.yml",
+    "socialbakers-posts-api-openapi.yml",
+    "socialbakers-profile-metrics-api-openapi.yml",
+    "socialbakers-reference-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

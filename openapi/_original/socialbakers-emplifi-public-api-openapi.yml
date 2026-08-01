@@ -1,0 +1,582 @@
+openapi: 3.1.0
+info:
+  title: Emplifi (Socialbakers) Public API
+  version: '3'
+  description: >-
+    The Emplifi Public API (v3) — formerly the Socialbakers API — provides
+    programmatic access to social media analytics, published content, profile
+    and post metrics, community engagement, social listening, Facebook Ads,
+    digital asset management (Assets), and customer care (Care) data across
+    Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and
+    Snapchat. Socialbakers rebranded to Emplifi in 2021; this API is the
+    successor to the original Socialbakers Public API.
+    Requests are authenticated with HTTP Basic auth (API token:secret) or
+    OAuth 2.0 authorization code flow. Metrics and posts endpoints accept a
+    JSON query body (profiles, metrics, date range) and return a
+    `{ "success": true, ... }` envelope.
+  contact:
+    name: Emplifi API Support
+    url: https://api.emplifi.io/
+  x-apievangelist:
+    method: derived
+    source: https://api.emplifi.io/ (Emplifi API v3 documentation) + https://github.com/Emplifi/public-api-tableau-wdc
+    note: >-
+      Derived from the published Emplifi Public API documentation and the
+      official Emplifi public-api-tableau-wdc connector source. Endpoint paths,
+      methods, auth schemes and the response envelope are taken from those
+      public sources; request/response schemas are representative, not verbatim.
+servers:
+  - url: https://api.emplifi.io
+    description: Emplifi Public API production
+tags:
+  - name: Reference
+    description: Managed profiles, labels, label groups, listening queries, ad accounts
+  - name: Profile Metrics
+    description: Time-series and aggregate metrics per social profile
+  - name: Posts
+    description: Published content (posts / videos / tweets) per network
+  - name: Assets
+    description: Digital asset management — collections and assets
+  - name: Care
+    description: Customer care cases and messages
+  - name: Community
+    description: Community content, labeling and engagement metrics
+  - name: Listening
+    description: Social listening content and metrics
+  - name: Ads
+    description: Facebook Ads content and metrics
+security:
+  - basicAuth: []
+  - oauth2: []
+paths:
+  /3/{network}/profiles:
+    get:
+      operationId: listProfiles
+      summary: List managed profiles for a network
+      tags: [Reference]
+      parameters:
+        - $ref: '#/components/parameters/Network'
+      responses:
+        '200':
+          description: List of managed profiles
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SuccessEnvelope' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/profile/labels:
+    get:
+      operationId: getProfileLabels
+      summary: List profile labels
+      tags: [Reference]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/post/labels:
+    get:
+      operationId: getPostLabels
+      summary: List post labels
+      tags: [Reference]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/post/label-groups:
+    get:
+      operationId: getPostLabelGroups
+      summary: List post label groups
+      tags: [Reference]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/listening/queries:
+    get:
+      operationId: getListeningQueries
+      summary: List configured social listening queries
+      tags: [Reference]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/ads/accounts:
+    post:
+      operationId: listAdAccounts
+      summary: List connected ad accounts
+      tags: [Reference]
+      requestBody: { $ref: '#/components/requestBodies/Query' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/facebook/metrics:
+    post:
+      operationId: getFacebookMetrics
+      summary: Facebook profile metrics
+      tags: [Profile Metrics]
+      requestBody: { $ref: '#/components/requestBodies/MetricsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+  /3/instagram/metrics:
+    post:
+      operationId: getInstagramMetrics
+      summary: Instagram profile metrics
+      tags: [Profile Metrics]
+      requestBody: { $ref: '#/components/requestBodies/MetricsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+  /3/twitter/metrics:
+    post:
+      operationId: getTwitterMetrics
+      summary: X/Twitter profile metrics
+      tags: [Profile Metrics]
+      requestBody: { $ref: '#/components/requestBodies/MetricsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+  /3/youtube/metrics:
+    post:
+      operationId: getYoutubeMetrics
+      summary: YouTube profile metrics
+      tags: [Profile Metrics]
+      requestBody: { $ref: '#/components/requestBodies/MetricsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+  /3/linkedin/metrics:
+    post:
+      operationId: getLinkedinMetrics
+      summary: LinkedIn profile metrics
+      tags: [Profile Metrics]
+      requestBody: { $ref: '#/components/requestBodies/MetricsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+  /3/pinterest/metrics:
+    post:
+      operationId: getPinterestMetrics
+      summary: Pinterest profile metrics
+      tags: [Profile Metrics]
+      requestBody: { $ref: '#/components/requestBodies/MetricsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+  /3/tiktok/metrics:
+    post:
+      operationId: getTiktokMetrics
+      summary: TikTok profile metrics
+      tags: [Profile Metrics]
+      requestBody: { $ref: '#/components/requestBodies/MetricsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+  /3/aggregated-metrics:
+    post:
+      operationId: getAggregatedMetrics
+      summary: Aggregated post metrics across profiles
+      tags: [Profile Metrics]
+      requestBody: { $ref: '#/components/requestBodies/MetricsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+  /3/facebook/page/posts:
+    post:
+      operationId: getFacebookPosts
+      summary: Facebook page posts
+      tags: [Posts]
+      requestBody: { $ref: '#/components/requestBodies/PostsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/PagedSuccess' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+  /3/instagram/profile/posts:
+    post:
+      operationId: getInstagramPosts
+      summary: Instagram profile posts
+      tags: [Posts]
+      requestBody: { $ref: '#/components/requestBodies/PostsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/PagedSuccess' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/youtube/profile/videos:
+    post:
+      operationId: getYoutubeVideos
+      summary: YouTube profile videos
+      tags: [Posts]
+      requestBody: { $ref: '#/components/requestBodies/PostsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/PagedSuccess' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/twitter/profile/tweets:
+    post:
+      operationId: getTwitterTweets
+      summary: X/Twitter profile tweets
+      tags: [Posts]
+      requestBody: { $ref: '#/components/requestBodies/PostsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/PagedSuccess' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/linkedin/page/posts:
+    post:
+      operationId: getLinkedinPosts
+      summary: LinkedIn page posts
+      tags: [Posts]
+      requestBody: { $ref: '#/components/requestBodies/PostsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/PagedSuccess' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/pinterest/profile/posts:
+    post:
+      operationId: getPinterestPosts
+      summary: Pinterest profile posts
+      tags: [Posts]
+      requestBody: { $ref: '#/components/requestBodies/PostsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/PagedSuccess' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/tiktok/profile/posts:
+    post:
+      operationId: getTiktokPosts
+      summary: TikTok profile posts
+      tags: [Posts]
+      requestBody: { $ref: '#/components/requestBodies/PostsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/PagedSuccess' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/snapchat/profile/posts:
+    post:
+      operationId: getSnapchatPosts
+      summary: Snapchat profile posts
+      tags: [Posts]
+      requestBody: { $ref: '#/components/requestBodies/PostsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/PagedSuccess' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/collections:
+    get:
+      operationId: listCollections
+      summary: List asset collections
+      tags: [Assets]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+    post:
+      operationId: createCollection
+      summary: Create an asset collection
+      tags: [Assets]
+      requestBody: { $ref: '#/components/requestBodies/Query' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/collections/{id}:
+    put:
+      operationId: editCollection
+      summary: Edit an asset collection
+      tags: [Assets]
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      requestBody: { $ref: '#/components/requestBodies/Query' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    delete:
+      operationId: deleteCollection
+      summary: Delete an asset collection
+      tags: [Assets]
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /3/collections/{id}/archive:
+    post:
+      operationId: archiveCollection
+      summary: Archive an asset collection
+      tags: [Assets]
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /3/collections/{id}/restore:
+    post:
+      operationId: restoreCollection
+      summary: Restore an archived asset collection
+      tags: [Assets]
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /3/assets:
+    get:
+      operationId: getAssets
+      summary: List assets
+      tags: [Assets]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/assets/upload:
+    post:
+      operationId: uploadAsset
+      summary: Upload an asset
+      tags: [Assets]
+      requestBody: { $ref: '#/components/requestBodies/Query' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/assets/{id}:
+    put:
+      operationId: editAsset
+      summary: Edit an asset
+      tags: [Assets]
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      requestBody: { $ref: '#/components/requestBodies/Query' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    delete:
+      operationId: deleteAsset
+      summary: Delete an asset
+      tags: [Assets]
+      parameters: [ { $ref: '#/components/parameters/Id' } ]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+  /3/care/cases:
+    get:
+      operationId: getCareCases
+      summary: List customer care cases
+      tags: [Care]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/care/messages:
+    get:
+      operationId: getCareMessages
+      summary: List customer care case messages
+      tags: [Care]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/community/content:
+    get:
+      operationId: getCommunityContent
+      summary: List community content
+      tags: [Community]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/community/content/labeling:
+    post:
+      operationId: labelCommunityContent
+      summary: Apply labels to community content
+      tags: [Community]
+      requestBody: { $ref: '#/components/requestBodies/Query' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/community/metrics:
+    post:
+      operationId: getCommunityMetrics
+      summary: Community engagement metrics
+      tags: [Community]
+      requestBody: { $ref: '#/components/requestBodies/MetricsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+  /3/listening/content:
+    get:
+      operationId: getListeningContent
+      summary: List social listening content
+      tags: [Listening]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/listening/metrics:
+    post:
+      operationId: getListeningMetrics
+      summary: Social listening metrics
+      tags: [Listening]
+      requestBody: { $ref: '#/components/requestBodies/MetricsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+  /3/ads/content:
+    get:
+      operationId: getAdsContent
+      summary: List Facebook Ads content
+      tags: [Ads]
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+  /3/ads/metrics:
+    post:
+      operationId: getAdsMetrics
+      summary: Facebook Ads metrics
+      tags: [Ads]
+      requestBody: { $ref: '#/components/requestBodies/MetricsQuery' }
+      responses:
+        '200': { $ref: '#/components/responses/Success' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '429': { $ref: '#/components/responses/RateLimited' }
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: >-
+        HTTP Basic authorization. Credentials are your Emplifi API `token` and
+        `secret`, base64-encoded as `token:secret`.
+    oauth2:
+      type: oauth2
+      description: >-
+        OAuth 2.0 authorization code flow. Create a Custom integration in
+        Emplifi Settings to obtain client credentials.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.emplifi.io/oauth2/0/auth
+          tokenUrl: https://api.emplifi.io/oauth2/0/token
+          scopes: {}
+  parameters:
+    Network:
+      name: network
+      in: path
+      required: true
+      description: Social network key
+      schema:
+        type: string
+        enum: [facebook, instagram, twitter, youtube, linkedin, pinterest, tiktok, snapchat]
+    Id:
+      name: id
+      in: path
+      required: true
+      description: Resource identifier
+      schema: { type: string }
+  requestBodies:
+    Query:
+      required: false
+      content:
+        application/json:
+          schema: { type: object, additionalProperties: true }
+    MetricsQuery:
+      required: true
+      description: Metrics query — profiles, metrics and a date range (max 100 profiles, 25 metrics, 12-month range).
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/MetricsQuery' }
+    PostsQuery:
+      required: true
+      description: Posts query — profiles and a date range, cursor-paginated.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/PostsQuery' }
+  responses:
+    Success:
+      description: Successful response
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/SuccessEnvelope' }
+    PagedSuccess:
+      description: Successful, cursor-paginated response
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/PagedEnvelope' }
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+    ValidationError:
+      description: Input validation error
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+    RateLimited:
+      description: Rate limit exceeded (1000 req/hour account, 500 req/hour user)
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+  schemas:
+    SuccessEnvelope:
+      type: object
+      properties:
+        success: { type: boolean, const: true }
+        header:
+          type: array
+          items: { type: object, additionalProperties: true }
+        data: {}
+      required: [success]
+    PagedEnvelope:
+      type: object
+      properties:
+        success: { type: boolean, const: true }
+        data:
+          type: array
+          items: { type: object, additionalProperties: true }
+        next:
+          type: [string, 'null']
+          description: Cursor for the next page
+        remaining:
+          type: [integer, 'null']
+          description: Number of items remaining
+      required: [success]
+    ErrorEnvelope:
+      type: object
+      properties:
+        success: { type: boolean, const: false }
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code: { type: integer }
+              errors:
+                type: array
+                items: { type: string }
+      required: [success, errors]
+    MetricsQuery:
+      type: object
+      properties:
+        profiles:
+          type: array
+          maxItems: 100
+          items: { type: string }
+        metrics:
+          type: array
+          maxItems: 25
+          items: { type: string }
+        dimensions:
+          type: array
+          items: { type: string }
+        date_start: { type: string, format: date }
+        date_end: { type: string, format: date }
+      required: [profiles, metrics, date_start, date_end]
+    PostsQuery:
+      type: object
+      properties:
+        profiles:
+          type: array
+          items: { type: string }
+        date_start: { type: string, format: date }
+        date_end: { type: string, format: date }
+        cursor: { type: string }
+      required: [profiles, date_start, date_end]

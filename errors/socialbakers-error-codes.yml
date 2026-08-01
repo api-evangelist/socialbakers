@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: derived
+source: https://api.emplifi.io/ + openapi/socialbakers-emplifi-public-api-openapi.yml
+format: custom-json
+envelope:
+  shape: '{ "success": false, "errors": [ { "code": <int>, "errors": [<string>] } ] }'
+  success_flag: success
+  note: >-
+    Errors are returned in a `success: false` envelope with an `errors` array;
+    each item carries a numeric `code` and a list of human-readable messages.
+    This is not RFC 9457 problem+json.
+error_codes:
+  - code: 3
+    title: Input validation error
+    meaning: The request body failed validation (e.g. unknown metric, too many profiles/metrics, invalid date range).
+    http_status: 400
+    remediation: >-
+      Check the request body against the documented constraints — max 100
+      profiles, 25 metrics, and a 12-month date range — and valid metric names.
+    source: https://api.emplifi.io/ (documented example)
+http_problems:
+  - status: 401
+    title: Authentication failed
+    meaning: Missing or invalid Basic credentials / OAuth token.
+    source_operations:
+      - openapi/socialbakers-emplifi-public-api-openapi.yml#listProfiles
+      - openapi/socialbakers-emplifi-public-api-openapi.yml#getFacebookMetrics
+  - status: 400
+    title: Input validation error
+    meaning: Request body failed validation.
+    source_operations:
+      - openapi/socialbakers-emplifi-public-api-openapi.yml#getFacebookMetrics
+      - openapi/socialbakers-emplifi-public-api-openapi.yml#createCollection
+  - status: 404
+    title: Resource not found
+    meaning: Referenced collection or asset id does not exist.
+    source_operations:
+      - openapi/socialbakers-emplifi-public-api-openapi.yml#editCollection
+      - openapi/socialbakers-emplifi-public-api-openapi.yml#deleteAsset
+  - status: 429
+    title: Rate limit exceeded
+    meaning: Hourly account (1000) or user (500) request quota exceeded.
+    source_operations:
+      - openapi/socialbakers-emplifi-public-api-openapi.yml#getFacebookMetrics

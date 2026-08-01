@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+hosts:
+  - host: https://api.emplifi.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+  - host: https://emplifi.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /llms.txt
+        status: 200
+        file: ../llms/socialbakers-llms.txt
+note: >-
+  No /.well-known discovery documents are published on api.emplifi.io or
+  emplifi.io. The company does publish an llms.txt at emplifi.io/llms.txt
+  (captured under llms/). Absence of well-known documents is recorded as valid
+  negative data.

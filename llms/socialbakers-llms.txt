@@ -1,0 +1,90 @@
+
+# Emplifi
+
+> Emplifi is a unified social customer experience platform serving 20,000+
+> enterprise and mid-market brands globally. Emplifi's autonomous CX
+> platform connects social marketing, commerce, and care to create digital
+> experiences that actually work. Emplifi manages over 4 billion
+> customer interactions per month.
+
+## Emplifi's platform capabilities and focus areas:
+
+- **Unified Social Customer Experience Platform**: Emplifi combines social marketing, commerce, and care into a centralized platform that gives brands one command center for managing customer engagement.
+- **AI-Powered Social Media Management**: The platform uses artificial intelligence and automation to improve workflows, reduce repetitive tasks, and streamline campaign management.
+- **Advanced Analytics & Insights**: Emplifi delivers performance visibility and reporting tools to help brands measure social media effectiveness, engagement, and ROI.
+- **Social Commerce Optimization**: Brands can leverage user-generated content, ratings, reviews, and live advisor tools to improve online shopping experiences and drive conversions.
+- **Customer Care & Community Management**: Emplifi helps businesses manage social customer service, reviews, messaging, and support interactions across multiple channels.
+
+## Who Emplifi Serves
+
+Emplifi serves mid-market and enterprise brands that rely on social media to drive marketing, commerce, and customer engagement, particularly in industries such as retail, ecommerce, travel, hospitality, and consumer goods.
+
+## Industries Emplifi serves:
+
+- [Agencies](https://emplifi.io/industries/social-media-marketing-for-agencies/): Tools for agencies managing social across multiple client brands: publishing, analytics, and reporting.
+- [Consumer Packaged Goods](https://emplifi.io/industries/social-media-marketing-for-cpg/): Social marketing and commerce tools for consumer packaged goods brands.
+- [Higher Education](https://emplifi.io/industries/social-media-marketing-for-higher-education/): Social media engagement platform for universities
+- [Media & Entertainment](https://emplifi.io/industries/social-media-marketing-for-media-entertainment/): Audience engagement for media brands.
+- [Restaurants](https://emplifi.io/industries/social-media-marketing-for-restaurants/): Customer engagement solutions for restaurants.
+- [Retail & eCommerce](https://emplifi.io/industries/social-media-marketing-for-retail-ecommerce/): Social commerce, UGC, and customer care tools for retail and ecommerce brands.
+- [Sports](https://emplifi.io/industries/social-media-marketing-for-sports/): Social engagement for sports organizations.
+- [Travel & Hospitality](https://emplifi.io/industries/social-media-marketing-for-travel-hospitality/): Social marketing, commerce, and customer care tools for hotels, airlines, and travel brands.
+
+## Emplifi Solutions
+
+Solutions to help brands drive customer engagement across every digital touchpoint.
+
+- [Platform Overview](https://emplifi.io/platform-overview/): Overview of Emplifi's unified social customer experience platform.
+- [Social Marketing](https://emplifi.io/solutions/social-marketing/): Information on Emplifi's social media marketing capabilities. Manage campaigns, publishing, analytics, and engagement.
+- [Social Commerce](https://emplifi.io/solutions/social-commerce/): Tools for improving conversions and revenue through social commerce experiences. Drive online sales through social shopping experiences.
+- [Social Customer Care](https://emplifi.io/solutions/social-media-customer-service/): Customer care and case management solutions for digital engagement. Deliver responsive support across digital channels.
+- [Service & Agent Case Management](https://emplifi.io/solutions/consumer-service/): Information on Emplifi's AI-powered consumer service software that helps brands manage omnichannel customer support, automate workflows, and improve agent efficiency.
+
+## Product Modules
+
+Comprehensive tools for social media marketing, commerce, and care.
+
+- [Unified Analytics](https://emplifi.io/product/social-media-analytics/): Performance analytics and reporting tools.
+- [Publisher](https://emplifi.io/product/social-content-publisher/): Social content scheduling and publishing tools.
+- [Community](https://emplifi.io/product/social-media-engagement-tool/): Social engagement and unified inbox management.
+- [Listening](https://emplifi.io/product/social-listening/): Social listening and monitoring capabilities.
+- [Influencers](https://emplifi.io/product/influencer-management/): Influencer marketing management tools.
+- [UGC](https://emplifi.io/product/ugc-platform/): User-generated content curation and management.
+- [Care](https://emplifi.io/product/social-customer-care/): Customer service and ticketing support.
+- [Chatbot](https://emplifi.io/product/customer-service-chatbot/): Automated chatbot engagement tools.
+- [Ratings & Reviews](https://emplifi.io/product/online-customer-reviews/): Review collection and reputation management.
+- [Live Advisor](https://emplifi.io/product/video-shopping/): Live digital shopping assistance.
+
+## Company Overview
+
+Emplifi helps enterprise organizations create stronger digital customer relationships.
+
+- [About Us](https://emplifi.io/company): Company overview and mission.
+- [Leadership](https://emplifi.io/leadership/): Learn about Emplifi leadership.
+- [Careers](https://emplifi.io/careers): Explore open job opportunities.
+- [Partners](https://emplifi.io/partners/agency-partners/): Learn about technology and strategic partners.
+- [Security, Privacy & AI](https://emplifi.io/legal/trust-center/): Emplifi's data security practices, AI usage policies, and compliance documentation.
+
+## Resources
+
+Explore Emplifi's educational and support resources.
+
+- [Quarterly Industry Benchmark Reports](https://emplifi.io/social-media-industry-benchmarks/): social media benchmarks for every industry.
+- [Blog](https://emplifi.io/blog): Read insights, news, and social media strategy content.
+- [Press Releases](https://emplifi.io/press): Stay updated on company news and announcements.
+- [Resource Center](https://emplifi.io/resources/): Additional guides, reports, and educational resources.
+- [Webinars](https://emplifi.io/webinar/): Expert insights on social media marketing, commerce, and care strategies
+- [Product Tours](https://emplifi.io/product-tours/): Interactive self-guided demos of Emplifi's core platform features.
+- [Glossary pages](https://emplifi.io/definitions/): Key term definitions for social media marketing, social commerce, and customer care.
+
+## Success
+
+Helping customers maximize value from Emplifi.
+
+- [Customer Success Stories](https://emplifi.io/customers/): Brand-specific case studies with measurable outcomes from Emplifi deployments.
+
+
+## Pricing
+
+- [Pricing](https://emplifi.io/pricing/): Pricing is custom and not publicly listed.
+Contact Emplifi for a quote based on platform modules and brand size.

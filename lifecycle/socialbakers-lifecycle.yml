@@ -1,0 +1,23 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.emplifi.io/
+versioning:
+  scheme: uri-path
+  current: '3'
+  docs: https://api.emplifi.io/
+  note: >-
+    Current API is v3 (the `/3/...` path prefix), the successor to the original
+    Socialbakers Public API. OAuth endpoints are versioned separately under
+    `/oauth2/0/`.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    No formal deprecation policy or RFC 8594 Sunset/Deprecation header support
+    is published. The documentation notes an older doc version is superseded by
+    `/v3`.
+status_page: https://status.emplifi.io/
+sla:
+  url: null
+  uptime_target: null
+deprecated_operations: []

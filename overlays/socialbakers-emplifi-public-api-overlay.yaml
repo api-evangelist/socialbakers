@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Emplifi (Socialbakers) Public API
+  version: 1.0.0
+extends: openapi/socialbakers-emplifi-public-api-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-rating: 3
+      x-apievangelist-notes: >-
+        Emplifi Public API v3 (formerly Socialbakers). Spec derived from the
+        published api.emplifi.io documentation and the official
+        public-api-tableau-wdc connector — endpoint paths, methods, auth and
+        the response envelope are real; schemas are representative.
+  - target: $.info
+    update:
+      x-legacy-name: Socialbakers API
+      x-successor-of: Socialbakers Public API
+  - target: $.components.securitySchemes.oauth2
+    update:
+      x-revocation-url: https://api.emplifi.io/oauth2/0/token/revocation

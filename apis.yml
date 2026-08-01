@@ -1,8 +1,18 @@
 aid: socialbakers
 name: Socialbakers
-description: 'Socialbakers is a company surfaced as a portfolio company of earlybird and added to the
-  API Evangelist network as a stub for enrichment. Sector: marketing. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Socialbakers was a pioneering social media analytics and marketing platform
+  (founded 2008 in Prague) that let brands and agencies benchmark, measure and
+  optimize their presence across Facebook, Instagram, X/Twitter, YouTube,
+  LinkedIn, Pinterest, TikTok and Snapchat. In 2021 Socialbakers was acquired
+  by Astute and rebranded to Emplifi, a unified social customer experience
+  platform combining social marketing, commerce and care. The former
+  Socialbakers Public API lives on as the Emplifi Public API (v3) at
+  api.emplifi.io, exposing profile and post metrics, published content, social
+  listening, community engagement, Facebook Ads, digital asset management and
+  customer care data. Authentication is HTTP Basic (API token/secret) or OAuth
+  2.0 authorization code, with hourly rate limits and cursor-paginated content
+  endpoints.
 url: https://raw.githubusercontent.com/api-evangelist/socialbakers/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,15 +20,263 @@ x-backed-by:
 - earlybird
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-successor: Emplifi
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://base.cdn.emplifi.io/suite/main/favicon.ico
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Marketing
-apis: []
+- Social Media
+- Analytics
+- Social Media Analytics
+- Social Listening
+- Marketing Analytics
+- Digital Asset Management
+- Customer Care
+- Emplifi
+apis:
+- aid: socialbakers:socialbakers-ads-api
+  name: Socialbakers Ads API
+  description: Facebook Ads content and metrics
+  humanURL: https://api.emplifi.io/
+  baseURL: https://api.emplifi.io
+  tags:
+  - Ads
+  properties:
+  - type: OpenAPI
+    url: openapi/socialbakers-ads-api-openapi.yml
+  - type: Authentication
+    url: authentication/socialbakers-authentication.yml
+  - type: OAuthScopes
+    url: scopes/socialbakers-scopes.yml
+  - type: RateLimits
+    url: rate-limits/socialbakers-rate-limits.yml
+  - type: Conventions
+    url: conventions/socialbakers-conventions.yml
+  - type: ErrorCatalog
+    url: errors/socialbakers-error-codes.yml
+  - type: DataModel
+    url: data-model/socialbakers-data-model.yml
+  - type: Conformance
+    url: conformance/socialbakers-conformance.yml
+- aid: socialbakers:socialbakers-assets-api
+  name: Socialbakers Assets API
+  description: Digital asset management — collections and assets
+  humanURL: https://api.emplifi.io/
+  baseURL: https://api.emplifi.io
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/socialbakers-assets-api-openapi.yml
+  - type: Authentication
+    url: authentication/socialbakers-authentication.yml
+  - type: OAuthScopes
+    url: scopes/socialbakers-scopes.yml
+  - type: RateLimits
+    url: rate-limits/socialbakers-rate-limits.yml
+  - type: Conventions
+    url: conventions/socialbakers-conventions.yml
+  - type: ErrorCatalog
+    url: errors/socialbakers-error-codes.yml
+  - type: DataModel
+    url: data-model/socialbakers-data-model.yml
+  - type: Conformance
+    url: conformance/socialbakers-conformance.yml
+- aid: socialbakers:socialbakers-care-api
+  name: Socialbakers Care API
+  description: Customer care cases and messages
+  humanURL: https://api.emplifi.io/
+  baseURL: https://api.emplifi.io
+  tags:
+  - Care
+  properties:
+  - type: OpenAPI
+    url: openapi/socialbakers-care-api-openapi.yml
+  - type: Authentication
+    url: authentication/socialbakers-authentication.yml
+  - type: OAuthScopes
+    url: scopes/socialbakers-scopes.yml
+  - type: RateLimits
+    url: rate-limits/socialbakers-rate-limits.yml
+  - type: Conventions
+    url: conventions/socialbakers-conventions.yml
+  - type: ErrorCatalog
+    url: errors/socialbakers-error-codes.yml
+  - type: DataModel
+    url: data-model/socialbakers-data-model.yml
+  - type: Conformance
+    url: conformance/socialbakers-conformance.yml
+- aid: socialbakers:socialbakers-community-api
+  name: Socialbakers Community API
+  description: Community content, labeling and engagement metrics
+  humanURL: https://api.emplifi.io/
+  baseURL: https://api.emplifi.io
+  tags:
+  - Community
+  properties:
+  - type: OpenAPI
+    url: openapi/socialbakers-community-api-openapi.yml
+  - type: Authentication
+    url: authentication/socialbakers-authentication.yml
+  - type: OAuthScopes
+    url: scopes/socialbakers-scopes.yml
+  - type: RateLimits
+    url: rate-limits/socialbakers-rate-limits.yml
+  - type: Conventions
+    url: conventions/socialbakers-conventions.yml
+  - type: ErrorCatalog
+    url: errors/socialbakers-error-codes.yml
+  - type: DataModel
+    url: data-model/socialbakers-data-model.yml
+  - type: Conformance
+    url: conformance/socialbakers-conformance.yml
+- aid: socialbakers:socialbakers-listening-api
+  name: Socialbakers Listening API
+  description: Social listening content and metrics
+  humanURL: https://api.emplifi.io/
+  baseURL: https://api.emplifi.io
+  tags:
+  - Listening
+  properties:
+  - type: OpenAPI
+    url: openapi/socialbakers-listening-api-openapi.yml
+  - type: Authentication
+    url: authentication/socialbakers-authentication.yml
+  - type: OAuthScopes
+    url: scopes/socialbakers-scopes.yml
+  - type: RateLimits
+    url: rate-limits/socialbakers-rate-limits.yml
+  - type: Conventions
+    url: conventions/socialbakers-conventions.yml
+  - type: ErrorCatalog
+    url: errors/socialbakers-error-codes.yml
+  - type: DataModel
+    url: data-model/socialbakers-data-model.yml
+  - type: Conformance
+    url: conformance/socialbakers-conformance.yml
+- aid: socialbakers:socialbakers-posts-api
+  name: Socialbakers Posts API
+  description: Published content (posts / videos / tweets) per network
+  humanURL: https://api.emplifi.io/
+  baseURL: https://api.emplifi.io
+  tags:
+  - Posts
+  properties:
+  - type: OpenAPI
+    url: openapi/socialbakers-posts-api-openapi.yml
+  - type: Authentication
+    url: authentication/socialbakers-authentication.yml
+  - type: OAuthScopes
+    url: scopes/socialbakers-scopes.yml
+  - type: RateLimits
+    url: rate-limits/socialbakers-rate-limits.yml
+  - type: Conventions
+    url: conventions/socialbakers-conventions.yml
+  - type: ErrorCatalog
+    url: errors/socialbakers-error-codes.yml
+  - type: DataModel
+    url: data-model/socialbakers-data-model.yml
+  - type: Conformance
+    url: conformance/socialbakers-conformance.yml
+- aid: socialbakers:socialbakers-profile-metrics-api
+  name: Socialbakers Profile Metrics API
+  description: Time-series and aggregate metrics per social profile
+  humanURL: https://api.emplifi.io/
+  baseURL: https://api.emplifi.io
+  tags:
+  - Profile Metrics
+  properties:
+  - type: OpenAPI
+    url: openapi/socialbakers-profile-metrics-api-openapi.yml
+  - type: Authentication
+    url: authentication/socialbakers-authentication.yml
+  - type: OAuthScopes
+    url: scopes/socialbakers-scopes.yml
+  - type: RateLimits
+    url: rate-limits/socialbakers-rate-limits.yml
+  - type: Conventions
+    url: conventions/socialbakers-conventions.yml
+  - type: ErrorCatalog
+    url: errors/socialbakers-error-codes.yml
+  - type: DataModel
+    url: data-model/socialbakers-data-model.yml
+  - type: Conformance
+    url: conformance/socialbakers-conformance.yml
+- aid: socialbakers:socialbakers-reference-api
+  name: Socialbakers Reference API
+  description: Managed profiles, labels, label groups, listening queries, ad accounts
+  humanURL: https://api.emplifi.io/
+  baseURL: https://api.emplifi.io
+  tags:
+  - Reference
+  properties:
+  - type: OpenAPI
+    url: openapi/socialbakers-reference-api-openapi.yml
+  - type: Authentication
+    url: authentication/socialbakers-authentication.yml
+  - type: OAuthScopes
+    url: scopes/socialbakers-scopes.yml
+  - type: RateLimits
+    url: rate-limits/socialbakers-rate-limits.yml
+  - type: Conventions
+    url: conventions/socialbakers-conventions.yml
+  - type: ErrorCatalog
+    url: errors/socialbakers-error-codes.yml
+  - type: DataModel
+    url: data-model/socialbakers-data-model.yml
+  - type: Conformance
+    url: conformance/socialbakers-conformance.yml
+common:
+- type: DomainSecurity
+  url: security/socialbakers-domain-security.yml
+- type: DeveloperPortal
+  url: https://api.emplifi.io/
+- type: Documentation
+  url: https://docs.emplifi.io/platform/latest/home
+- type: APIReference
+  url: https://api.emplifi.io/
+- type: StatusPage
+  url: https://status.emplifi.io/
+- type: Lifecycle
+  url: lifecycle/socialbakers-lifecycle.yml
+- type: LLMsTxt
+  url: llms/socialbakers-llms.txt
+- type: WellKnown
+  url: well-known/socialbakers-well-known.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: GitHubOrganization
+  url: https://github.com/Emplifi
+- type: Blog
+  url: https://emplifi.io/resources/blog/
+- type: Pricing
+  url: https://emplifi.io/pricing/
+- type: PrivacyPolicy
+  url: https://emplifi.io/legal/privacy-policy/
+- type: TermsOfService
+  url: https://emplifi.io/legal/website-terms-of-use/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1

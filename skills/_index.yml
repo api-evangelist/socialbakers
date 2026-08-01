@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/socialbakers-emplifi-public-api-openapi.yml
+skills:
+  - file: socialbakers-profile-metrics.md
+    name: Pull social profile metrics
+    api: openapi/socialbakers-emplifi-public-api-openapi.yml
+    operations: [listProfiles, getFacebookMetrics, getInstagramMetrics, getAggregatedMetrics]
+  - file: socialbakers-list-posts.md
+    name: Retrieve published posts with pagination
+    api: openapi/socialbakers-emplifi-public-api-openapi.yml
+    operations: [listProfiles, getFacebookPosts, getInstagramPosts, getTwitterTweets]

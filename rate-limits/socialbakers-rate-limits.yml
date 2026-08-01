@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.emplifi.io/
+docs: https://api.emplifi.io/
+scheme: fixed-window-hourly
+limits:
+  - scope: account
+    limit_count: 1000
+    window: 1h
+    description: Maximum 1000 requests per hour per account.
+  - scope: user
+    limit_count: 500
+    window: 1h
+    description: Maximum 500 requests per hour per user.
+request_constraints:
+  - name: max_profiles
+    value: 100
+    description: A single metrics request may target at most 100 profiles.
+  - name: max_metrics
+    value: 25
+    description: A single metrics request may request at most 25 metrics.
+  - name: max_date_range_months
+    value: 12
+    description: The date range of a single request may not exceed 12 months.
+signaling:
+  http_status_on_exceed: 429
+  headers: []
+  note: >-
+    Documentation states hourly account/user quotas and per-request caps;
+    it does not publish rate-limit response headers (e.g. X-RateLimit-*).

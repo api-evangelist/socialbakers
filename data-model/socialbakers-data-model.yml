@@ -1,0 +1,76 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/socialbakers-emplifi-public-api-openapi.yml + https://api.emplifi.io/
+entities:
+  - name: Profile
+    description: A managed social media profile on a network (Facebook, Instagram, etc.).
+    endpoints: [listProfiles]
+  - name: ProfileLabel
+    description: A label applied to profiles for grouping/filtering.
+    endpoints: [getProfileLabels]
+  - name: Post
+    description: A published content item (post / video / tweet) belonging to a profile.
+    endpoints: [getFacebookPosts, getInstagramPosts, getYoutubeVideos, getTwitterTweets, getLinkedinPosts, getPinterestPosts, getTiktokPosts, getSnapchatPosts]
+  - name: PostLabel
+    description: A label applied to posts.
+    endpoints: [getPostLabels]
+  - name: PostLabelGroup
+    description: A group of post labels.
+    endpoints: [getPostLabelGroups]
+  - name: Metric
+    description: A time-series or aggregate measurement for a profile, community, listening query or ad account.
+    endpoints: [getFacebookMetrics, getAggregatedMetrics, getCommunityMetrics, getListeningMetrics, getAdsMetrics]
+  - name: Collection
+    description: A grouping of digital assets in the Assets API.
+    endpoints: [listCollections, createCollection, editCollection, archiveCollection, deleteCollection, restoreCollection]
+  - name: Asset
+    description: A digital asset (image/video) that can belong to a collection.
+    endpoints: [uploadAsset, getAssets, editAsset, deleteAsset]
+  - name: Case
+    description: A customer care case.
+    endpoints: [getCareCases]
+  - name: Message
+    description: A message belonging to a care case.
+    endpoints: [getCareMessages]
+  - name: ListeningQuery
+    description: A configured social listening query.
+    endpoints: [getListeningQueries, getListeningContent, getListeningMetrics]
+  - name: AdAccount
+    description: A connected advertising account.
+    endpoints: [listAdAccounts, getAdsContent, getAdsMetrics]
+  - name: Campaign
+    description: An advertising campaign surfaced in ads metrics headers.
+    endpoints: [getAdsMetrics]
+relationships:
+  - from: Post
+    to: Profile
+    type: belongs_to
+    via: profile
+  - from: Profile
+    to: ProfileLabel
+    type: has_many
+    via: profile_labels
+  - from: Post
+    to: PostLabel
+    type: has_many
+    via: post_labels
+  - from: PostLabel
+    to: PostLabelGroup
+    type: belongs_to
+    via: label_group
+  - from: Asset
+    to: Collection
+    type: belongs_to
+    via: collection
+  - from: Message
+    to: Case
+    type: belongs_to
+    via: case
+  - from: Metric
+    to: Profile
+    type: belongs_to
+    via: profile
+  - from: Campaign
+    to: AdAccount
+    type: belongs_to
+    via: ad_account

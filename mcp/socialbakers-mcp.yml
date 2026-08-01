@@ -1,0 +1,42 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/socialbakers-emplifi-public-api-openapi.yml
+note: >-
+  No official hosted/remote MCP server was found for the Emplifi (Socialbakers)
+  Public API. This is a candidate tool list derived from the OpenAPI operations
+  so an agent could wrap the API; it is not published by the provider.
+server:
+  name: socialbakers-emplifi
+  transport: stdio
+tools:
+  - name: list_profiles
+    description: List managed profiles for a social network
+    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#listProfiles
+  - name: get_facebook_metrics
+    description: Retrieve Facebook profile metrics for a date range
+    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getFacebookMetrics
+  - name: get_instagram_metrics
+    description: Retrieve Instagram profile metrics for a date range
+    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getInstagramMetrics
+  - name: get_aggregated_metrics
+    description: Retrieve aggregated post metrics across profiles
+    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getAggregatedMetrics
+  - name: get_facebook_posts
+    description: List Facebook page posts (cursor-paginated)
+    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getFacebookPosts
+  - name: get_instagram_posts
+    description: List Instagram profile posts (cursor-paginated)
+    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getInstagramPosts
+  - name: get_listening_content
+    description: List social listening content
+    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getListeningContent
+  - name: get_listening_metrics
+    description: Retrieve social listening metrics
+    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getListeningMetrics
+  - name: list_collections
+    description: List digital asset collections
+    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#listCollections
+  - name: get_care_cases
+    description: List customer care cases
+    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getCareCases

@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/socialbakers-emplifi-public-api-openapi.yml + https://api.emplifi.io/
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: OpenAPI securitySchemes declares oauth2 authorizationCode flow (auth/token URLs published).
+  - id: oauth2-token-revocation
+    conforms: true
+    evidence: Documents a token revocation endpoint at /oauth2/0/token/revocation (RFC 7009).
+  - id: http-basic-auth
+    conforms: true
+    evidence: RFC 7617 Basic auth with token:secret base64.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use a custom { success, errors[] } envelope, not application/problem+json.
+  - id: cursor-pagination
+    conforms: true
+    evidence: Posts endpoints paginate with next/remaining cursor fields.
+  - id: rest-json
+    conforms: true
+    evidence: JSON request/response over HTTPS with resource-oriented /3/ paths.
+  - id: rfc6749-authorization-code
+    conforms: true
+    evidence: OAuth 2.0 authorization code flow documented.

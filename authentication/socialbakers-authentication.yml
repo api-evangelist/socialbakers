@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.emplifi.io/
+docs: https://api.emplifi.io/
+summary:
+  types: [http, oauth2]
+  http_schemes: [basic]
+  oauth2_flows: [authorizationCode]
+  notes: >-
+    The Emplifi (Socialbakers) Public API v3 accepts two authentication
+    methods. HTTP Basic uses your API token and secret base64-encoded as
+    `token:secret`. OAuth 2.0 uses the authorization code flow via a Custom
+    integration created in Emplifi Settings. A custom `x-api-consumer` header
+    is also sent by first-party integrations.
+schemes:
+  - name: basicAuth
+    type: http
+    scheme: basic
+    description: >-
+      HTTP Basic authorization; credentials are the API token and secret
+      base64-encoded as `token:secret`. Sent as `Authorization: Basic <base64>`.
+    sources: [openapi/socialbakers-emplifi-public-api-openapi.yml]
+  - name: oauth2
+    type: oauth2
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://api.emplifi.io/oauth2/0/auth
+        tokenUrl: https://api.emplifi.io/oauth2/0/token
+        revocationUrl: https://api.emplifi.io/oauth2/0/token/revocation
+        scopes: 0
+    description: >-
+      OAuth 2.0 authorization code flow. Register a Custom integration in
+      Emplifi Settings to obtain client credentials, then exchange an
+      authorization code for an access token.
+    sources: [openapi/socialbakers-emplifi-public-api-openapi.yml, https://api.emplifi.io/]
