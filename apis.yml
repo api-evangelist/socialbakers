@@ -242,6 +242,10 @@ apis:
   - type: Conformance
     url: conformance/socialbakers-conformance.yml
 common:
+- type: MCPServer
+  url: mcp/socialbakers-mcp.yml
+- type: Overlay
+  url: overlays/socialbakers-emplifi-public-api-overlay.yaml
 - type: DomainSecurity
   url: security/socialbakers-domain-security.yml
 - type: DeveloperPortal
