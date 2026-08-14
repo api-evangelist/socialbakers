@@ -36,7 +36,7 @@ accessModel:
 image: https://base.cdn.emplifi.io/suite/main/favicon.ico
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-13'
 tags:
 - Company
 - Marketing
@@ -242,8 +242,24 @@ apis:
   - type: Conformance
     url: conformance/socialbakers-conformance.yml
 common:
+- type: AgenticAccess
+  url: agentic-access/socialbakers-agentic-access.yml
 - type: MCPServer
   url: mcp/socialbakers-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/socialbakers-tool-crosswalk.yml
+- type: Packages
+  url: packages/socialbakers-packages.yml
+- type: Plans
+  url: plans/socialbakers-plans-pricing.yml
+- type: ChangeLog
+  url: changelog/socialbakers-changelog.yml
+- type: ReleaseNotes
+  url: https://docs.emplifi.io/platform/latest/home/release-notes.md
+- type: TrustCenter
+  url: security/socialbakers-trust-center.yml
+- type: Compliance
+  url: https://emplifi.io/legal/trust-center/
 - type: Overlay
   url: overlays/socialbakers-emplifi-public-api-overlay.yaml
 - type: DomainSecurity
@@ -260,10 +276,14 @@ common:
   url: lifecycle/socialbakers-lifecycle.yml
 - type: LLMsTxt
   url: llms/socialbakers-llms.txt
-- type: WellKnown
-  url: well-known/socialbakers-well-known.yml
 - type: AgentSkill
   url: skills/_index.yml
+- type: GettingStarted
+  url: https://docs.emplifi.io/platform/latest/home/emplifi-public-api-integration.md
+- type: Support
+  url: https://support.emplifi.io/hc/en-us
+- type: Login
+  url: https://emplifi.io/login/
 - type: GitHubOrganization
   url: https://github.com/Emplifi
 - type: Blog
@@ -280,7 +300,7 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 x-enrichment:
-  date: '2026-07-21'
+  date: '2026-08-13'
   status: enriched
-  artifacts_added: 17
+  artifacts_added: 7
   pass: local-v1
