@@ -1,0 +1,293 @@
+{
+  "item": [
+    {
+      "id": "56b4944d-f8aa-4f36-88f4-29a26fc356f8",
+      "name": "Care",
+      "description": {
+        "content": "Customer care cases and messages",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "24c1db75-0bbf-4a83-a00c-cfbb1c0c1f04",
+          "name": "List customer care cases",
+          "request": {
+            "name": "List customer care cases",
+            "description": {},
+            "url": {
+              "path": [
+                "3",
+                "care",
+                "cases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c12d90e7-4b6c-43eb-ad43-9ac4c1c11f1a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "care",
+                    "cases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"header\": [\n    {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    {\n      \"key_0\": 6675.198993425766,\n      \"key_1\": \"string\",\n      \"key_2\": false\n    }\n  ],\n  \"data\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce8f0104-b752-49d3-b7e9-5e086950f0df",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "care",
+                    "cases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"errors\": [\n    {\n      \"code\": 507,\n      \"errors\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"code\": 5789,\n      \"errors\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4d7c683-9c05-42a2-abb9-f69ef407996e",
+          "name": "List customer care case messages",
+          "request": {
+            "name": "List customer care case messages",
+            "description": {},
+            "url": {
+              "path": [
+                "3",
+                "care",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d62ab60e-4538-43f3-821a-2ee692a34b44",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "care",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"header\": [\n    {\n      \"key_0\": true,\n      \"key_1\": 5390\n    },\n    {\n      \"key_0\": 2700.3057942628648\n    }\n  ],\n  \"data\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fe7826db-2b23-4c65-a278-59faa249e5ed",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "care",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"errors\": [\n    {\n      \"code\": 325,\n      \"errors\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"code\": 8966,\n      \"errors\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.emplifi.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "61ec6b98-8f51-48b9-9a1c-3787c856c18a",
+    "name": "Emplifi (Socialbakers) Public Ads Care API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Emplifi Public API (v3) — formerly the Socialbakers API — provides programmatic access to social media analytics, published content, profile and post metrics, community engagement, social listening, Facebook Ads, digital asset management (Assets), and customer care (Care) data across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat. Socialbakers rebranded to Emplifi in 2021; this API is the successor to the original Socialbakers Public API. Requests are authenticated with HTTP Basic auth (API token:secret) or OAuth 2.0 authorization code flow. Metrics and posts endpoints accept a JSON query body (profiles, metrics, date range) and return a `{ \"success\": true, ... }` envelope.\n\nContact Support:\n Name: Emplifi API Support",
+      "type": "text/plain"
+    }
+  }
+}

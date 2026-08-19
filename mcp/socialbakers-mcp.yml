@@ -1,42 +1,64 @@
-generated: '2026-07-21'
+generated: '2026-08-13'
 method: derived
 status: candidate
-source: openapi/socialbakers-emplifi-public-api-openapi.yml
+source: openapi/ (8 refined Emplifi Public API v3 specs)
 note: >-
   No official hosted/remote MCP server was found for the Emplifi (Socialbakers)
-  Public API. This is a candidate tool list derived from the OpenAPI operations
-  so an agent could wrap the API; it is not published by the provider.
+  Public API. Searched the Emplifi GitHub organization (8 public repos, none
+  MCP-related), npm (`emplifi`, `@emplifi/*`, `socialbakers` — all absent), the
+  Emplifi documentation centre (docs.emplifi.io/llms.txt indexes 1,000+ pages;
+  zero mention of MCP or Model Context Protocol) and the API reference at
+  api.emplifi.io. This is a candidate tool list derived from the OpenAPI
+  operations so an agent could wrap the API; it is NOT published by the
+  provider and no endpoint is asserted.
+deployment:
+  mode: none
+  auth: unknown
+  verified: derived
+  note: >-
+    Nobody ships an MCP server for this API — neither a remote endpoint nor a
+    stdio package. `mode: none` records a derived candidate, not a reachable
+    agent surface.
 server:
   name: socialbakers-emplifi
   transport: stdio
 tools:
-  - name: list_profiles
-    description: List managed profiles for a social network
-    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#listProfiles
-  - name: get_facebook_metrics
-    description: Retrieve Facebook profile metrics for a date range
-    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getFacebookMetrics
-  - name: get_instagram_metrics
-    description: Retrieve Instagram profile metrics for a date range
-    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getInstagramMetrics
-  - name: get_aggregated_metrics
-    description: Retrieve aggregated post metrics across profiles
-    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getAggregatedMetrics
-  - name: get_facebook_posts
-    description: List Facebook page posts (cursor-paginated)
-    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getFacebookPosts
-  - name: get_instagram_posts
-    description: List Instagram profile posts (cursor-paginated)
-    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getInstagramPosts
-  - name: get_listening_content
-    description: List social listening content
-    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getListeningContent
-  - name: get_listening_metrics
-    description: Retrieve social listening metrics
-    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getListeningMetrics
-  - name: list_collections
-    description: List digital asset collections
-    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#listCollections
-  - name: get_care_cases
-    description: List customer care cases
-    source_operation: openapi/socialbakers-emplifi-public-api-openapi.yml#getCareCases
+- name: list_profiles
+  description: List managed profiles for a social network
+  source_operation: openapi/socialbakers-reference-api-openapi.yml#listProfiles
+- name: get_facebook_metrics
+  description: Retrieve Facebook profile metrics for a date range
+  source_operation: openapi/socialbakers-profile-metrics-api-openapi.yml#getFacebookMetrics
+- name: get_instagram_metrics
+  description: Retrieve Instagram profile metrics for a date range
+  source_operation: openapi/socialbakers-profile-metrics-api-openapi.yml#getInstagramMetrics
+- name: get_aggregated_metrics
+  description: Retrieve aggregated post metrics across profiles
+  source_operation: openapi/socialbakers-profile-metrics-api-openapi.yml#getAggregatedMetrics
+- name: get_facebook_posts
+  description: List Facebook page posts (cursor-paginated)
+  source_operation: openapi/socialbakers-posts-api-openapi.yml#getFacebookPosts
+- name: get_instagram_posts
+  description: List Instagram profile posts (cursor-paginated)
+  source_operation: openapi/socialbakers-posts-api-openapi.yml#getInstagramPosts
+- name: get_listening_content
+  description: List social listening content
+  source_operation: openapi/socialbakers-listening-api-openapi.yml#getListeningContent
+- name: get_listening_metrics
+  description: Retrieve social listening metrics
+  source_operation: openapi/socialbakers-listening-api-openapi.yml#getListeningMetrics
+- name: get_community_content
+  description: List community content (comments, mentions, messages)
+  source_operation: openapi/socialbakers-community-api-openapi.yml#getCommunityContent
+- name: list_collections
+  description: List digital asset collections
+  source_operation: openapi/socialbakers-assets-api-openapi.yml#listCollections
+- name: get_assets
+  description: List digital assets
+  source_operation: openapi/socialbakers-assets-api-openapi.yml#getAssets
+- name: get_care_cases
+  description: List customer care cases
+  source_operation: openapi/socialbakers-care-api-openapi.yml#getCareCases
+- name: get_ads_metrics
+  description: Retrieve Facebook Ads metrics
+  source_operation: openapi/socialbakers-ads-api-openapi.yml#getAdsMetrics

@@ -1,25 +1,44 @@
-generated: '2026-07-21'
-method: searched
+generated: '2026-08-13'
+method: probed
+source: live GET of each path on every apis.yml / OpenAPI servers[] host
 hosts:
-  - host: https://api.emplifi.io
-    documents:
-      - path: /.well-known/security.txt
-        status: 404
-      - path: /.well-known/openid-configuration
-        status: 404
-      - path: /.well-known/oauth-authorization-server
-        status: 404
-      - path: /.well-known/api-catalog
-        status: 404
-  - host: https://emplifi.io
-    documents:
-      - path: /.well-known/security.txt
-        status: 404
-      - path: /llms.txt
-        status: 200
-        file: ../llms/socialbakers-llms.txt
+- host: https://api.emplifi.io
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://emplifi.io
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404, note: 'returns the site 404 HTML shell, not a document'}
+  - {path: /.well-known/agent.json, status: 404, note: 'returns the site 404 HTML shell, not a document'}
+- host: https://docs.emplifi.io
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+adjacent_discovery:
+- {path: /llms.txt, host: 'https://emplifi.io', status: 200, file: ../llms/socialbakers-llms.txt}
+- {path: /llms.txt, host: 'https://docs.emplifi.io', status: 200, note: '111KB markdown index of the documentation centre; not captured verbatim (every doc page is also available as .md)'}
 note: >-
-  No /.well-known discovery documents are published on api.emplifi.io or
-  emplifi.io. The company does publish an llms.txt at emplifi.io/llms.txt
-  (captured under llms/). Absence of well-known documents is recorded as valid
-  negative data.
+  ZERO /.well-known documents are served on any Emplifi host — every RFC 8615
+  path returns 404 on api.emplifi.io, emplifi.io and docs.emplifi.io. This file
+  records a verified ABSENCE, so no `WellKnown` and no `SecurityTxt` pointer is
+  emitted in apis.yml (a prior round wired a WellKnown pointer at this file even
+  though the file documented only 404s; that pointer has been removed). The
+  company does serve an llms.txt on both the marketing and docs hosts, captured
+  under llms/ and pointed at with `type: LLMsTxt`.

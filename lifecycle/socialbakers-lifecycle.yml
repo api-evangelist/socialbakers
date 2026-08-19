@@ -21,3 +21,35 @@ sla:
   url: null
   uptime_target: null
 deprecated_operations: []
+release_notes:
+  url: https://docs.emplifi.io/platform/latest/home/release-notes.md
+  ref: changelog/socialbakers-changelog.yml
+  cadence: roughly every two weeks, archived by year back to 2023
+deprecation_notices:
+  checked: '2026-08-13'
+  note: >-
+    Emplifi publishes no deprecation POLICY and no Sunset/Deprecation headers, so
+    no `Deprecation` pointer is emitted — but it does publish per-change
+    deprecation NOTICES with dates and migration guidance, which is the practice
+    that stands in for a policy here.
+  notices:
+  - name: Facebook Metric Deprecation (June 2026)
+    url: https://docs.emplifi.io/platform/latest/home/facebook-metric-deprecation-june-2026.md
+    api_affecting: true
+    advance_notice: >-
+      Flagged in the January 8, January 21 and February 4, 2026 release notes
+      before the June 19, 2026 rollout.
+    summary: >-
+      Meta retired several Facebook unique-reach metrics; Emplifi switched
+      Content, Dashboard, Unified Analytics AND the Emplifi API to Meta's media
+      viewers endpoints on 2026-06-19. Paid/organic unique reach and unique
+      video views were removed with no like-for-like replacement; replaced
+      metrics keep their names with a changed underlying definition, backfilled
+      to 2025-05-01 with no blended period.
+  - name: Migrate from the Emplifi/Socialbakers API 1.0 to 3.0
+    url: https://docs.emplifi.io/platform/latest/home/emplifi-socialbakers-api-migration-from-1-0-to-3-0.md
+    api_affecting: true
+    summary: >-
+      Endpoint-by-endpoint migration guide from the original Socialbakers Public
+      API 1.0 to the Emplifi Public API 3.0 — the record of the one major
+      version transition this API has been through.

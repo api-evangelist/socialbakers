@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Emplifi (Socialbakers) Public Ads Community API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Community",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List community content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.emplifi.io/3/community/content"
+          },
+          "docs": "List community content"
+        },
+        {
+          "info": {
+            "name": "Apply labels to community content",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/community/content/labeling",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Apply labels to community content"
+        },
+        {
+          "info": {
+            "name": "Community engagement metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/community/metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Community engagement metrics"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

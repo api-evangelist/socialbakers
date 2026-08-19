@@ -1,7 +1,7 @@
 ---
 name: Pull social profile metrics
 description: Authenticate to the Emplifi (Socialbakers) Public API and retrieve profile metrics for one or more managed social profiles over a date range.
-api: openapi/socialbakers-emplifi-public-api-openapi.yml
+api: openapi/_original/socialbakers-emplifi-public-api-openapi.yml
 operations: [listProfiles, getFacebookMetrics, getInstagramMetrics, getAggregatedMetrics]
 ---
 

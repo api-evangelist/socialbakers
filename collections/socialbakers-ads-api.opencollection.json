@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Emplifi (Socialbakers) Public Ads API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Facebook Ads content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.emplifi.io/3/ads/content"
+          },
+          "docs": "List Facebook Ads content"
+        },
+        {
+          "info": {
+            "name": "Facebook Ads metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/ads/metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Facebook Ads metrics"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

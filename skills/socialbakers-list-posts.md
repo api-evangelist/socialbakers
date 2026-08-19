@@ -1,7 +1,7 @@
 ---
 name: Retrieve published posts with pagination
 description: Fetch published content (posts, videos, tweets) for managed Emplifi (Socialbakers) profiles, walking the cursor pagination.
-api: openapi/socialbakers-emplifi-public-api-openapi.yml
+api: openapi/_original/socialbakers-emplifi-public-api-openapi.yml
 operations: [listProfiles, getFacebookPosts, getInstagramPosts, getTwitterTweets]
 ---
 

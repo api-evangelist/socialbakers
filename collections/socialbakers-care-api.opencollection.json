@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Emplifi (Socialbakers) Public Ads Care API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Care",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List customer care cases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.emplifi.io/3/care/cases"
+          },
+          "docs": "List customer care cases"
+        },
+        {
+          "info": {
+            "name": "List customer care case messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.emplifi.io/3/care/messages"
+          },
+          "docs": "List customer care case messages"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Emplifi (Socialbakers) Public Ads Profile Metrics API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Profile Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Facebook profile metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/facebook/metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Facebook profile metrics"
+        },
+        {
+          "info": {
+            "name": "Instagram profile metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/instagram/metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Instagram profile metrics"
+        },
+        {
+          "info": {
+            "name": "X/Twitter profile metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/twitter/metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "X/Twitter profile metrics"
+        },
+        {
+          "info": {
+            "name": "YouTube profile metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/youtube/metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "YouTube profile metrics"
+        },
+        {
+          "info": {
+            "name": "LinkedIn profile metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/linkedin/metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "LinkedIn profile metrics"
+        },
+        {
+          "info": {
+            "name": "Pinterest profile metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/pinterest/metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Pinterest profile metrics"
+        },
+        {
+          "info": {
+            "name": "TikTok profile metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/tiktok/metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "TikTok profile metrics"
+        },
+        {
+          "info": {
+            "name": "Aggregated post metrics across profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/aggregated-metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Aggregated post metrics across profiles"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

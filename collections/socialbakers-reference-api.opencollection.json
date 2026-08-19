@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Emplifi (Socialbakers) Public Ads Reference API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reference",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List managed profiles for a network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.emplifi.io/3/:network/profiles",
+            "params": [
+              {
+                "name": "network",
+                "value": "",
+                "type": "path",
+                "description": "Social network key"
+              }
+            ]
+          },
+          "docs": "List managed profiles for a network"
+        },
+        {
+          "info": {
+            "name": "List profile labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.emplifi.io/3/profile/labels"
+          },
+          "docs": "List profile labels"
+        },
+        {
+          "info": {
+            "name": "List post labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.emplifi.io/3/post/labels"
+          },
+          "docs": "List post labels"
+        },
+        {
+          "info": {
+            "name": "List post label groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.emplifi.io/3/post/label-groups"
+          },
+          "docs": "List post label groups"
+        },
+        {
+          "info": {
+            "name": "List configured social listening queries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.emplifi.io/3/listening/queries"
+          },
+          "docs": "List configured social listening queries"
+        },
+        {
+          "info": {
+            "name": "List connected ad accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/ads/accounts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List connected ad accounts"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

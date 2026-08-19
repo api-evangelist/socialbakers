@@ -1,0 +1,143 @@
+generated: '2026-08-13'
+method: searched
+source: https://emplifi.io/pricing/
+docs: https://emplifi.io/pricing/
+currency: USD
+billing_period: month
+plan_count: 9
+model: >-
+  Three packages (Social Marketing, Social Care, Social Commerce), each sold in
+  three tiers (Essential, Advanced, Intelligent). Pricing is value-based rather
+  than per-seat — every tier advertises unlimited user licences, unlimited
+  connected profiles and unlimited ad-account connections; the tier boundaries
+  are set by AI capability, governance/teams limits, public-profile
+  benchmarking quotas and integration access. Only the two Social Marketing
+  entry tiers publish a "starting at" figure; the remaining seven tiers are
+  quote-only.
+api_access:
+  note: >-
+    API access is a TIER-GATED feature, not a universal one. The Social
+    Marketing Intelligent tier is the tier whose published summary names "API
+    access"; Social Commerce Advanced names "Integrate with BI Tools via API",
+    and the feature matrix lists "BI Tool Integration" (analytics API endpoints)
+    and "Looker Studio Integration" (Emplifi API data connector) as tier-gated
+    rows. Separately, the documentation states the Emplifi Public API "is not
+    enabled by default" and is switched on by Emplifi Support / a Customer
+    Success Manager per account.
+  evidence:
+  - https://emplifi.io/pricing/
+  - https://docs.emplifi.io/platform/latest/home/emplifi-public-api-integration.md
+plans:
+- name: Social Marketing — Essential
+  package: Social Marketing
+  price: 1249
+  price_display: 'Starting at: $1,249 / Month'
+  currency: USD
+  period: month
+  quote_only: false
+  ideal_for: Teams starting to unify their social channels and scale up.
+  limits:
+    users: unlimited
+    connected_profiles: unlimited
+    ad_account_connections: unlimited
+    public_profiles_benchmarking: up to 10 profiles
+    teams: 1 Team
+  api_access: false
+- name: Social Marketing — Advanced
+  package: Social Marketing
+  price: 2499
+  price_display: 'Starting at: $2,499 / Month'
+  currency: USD
+  period: month
+  quote_only: false
+  ideal_for: Mid-sized teams focused on collaboration and proving social's impact.
+  limits:
+    users: unlimited
+    connected_profiles: unlimited
+    ad_account_connections: unlimited
+    public_profiles_benchmarking: up to 50 profiles
+    teams: 3 Teams
+  api_access: false
+- name: Social Marketing — Intelligent
+  package: Social Marketing
+  price: null
+  price_display: 'Contact for: Custom quote'
+  currency: USD
+  period: month
+  quote_only: true
+  ideal_for: Large enterprises managing significant data and complex operations.
+  limits:
+    users: unlimited
+    connected_profiles: unlimited
+    ad_account_connections: unlimited
+    public_profiles_benchmarking: up to 100 profiles
+    teams: Unlimited
+  api_access: true
+  note: 'Published summary: "Leverage advanced analytics, API access, and AI-driven performance prediction."'
+- name: Social Care — Essential
+  package: Social Care
+  price: null
+  price_display: 'Contact for: Custom quote'
+  currency: USD
+  period: month
+  quote_only: true
+  ideal_for: Teams who need to get organized and manage social community care in one place.
+- name: Social Care — Advanced
+  package: Social Care
+  price: null
+  price_display: 'Contact for: Custom quote'
+  currency: USD
+  period: month
+  quote_only: true
+  ideal_for: Growing teams that need to work faster and smarter.
+  note: Adds an embedded Salesforce integration.
+- name: Social Care — Intelligent
+  package: Social Care
+  price: null
+  price_display: 'Preview: Coming in 2026'
+  currency: USD
+  period: month
+  quote_only: true
+  status: preview
+  note: Every listed capability is marked [Roadmap]; the tier is advertised as a preview, not generally available.
+- name: Social Commerce — Essential
+  package: Social Commerce
+  price: null
+  price_display: 'Contact for: Custom quote'
+  currency: USD
+  period: month
+  quote_only: true
+  ideal_for: Brands starting to unify their customer experience efforts through ratings and reviews.
+- name: Social Commerce — Advanced
+  package: Social Commerce
+  price: null
+  price_display: 'Contact for: Custom quote'
+  currency: USD
+  period: month
+  quote_only: true
+  ideal_for: Growing brands aiming to optimize their customer experience and integrate UGC.
+  api_access: true
+  note: 'Published summary includes "Integrate with BI Tools via API."'
+- name: Social Commerce — Intelligent
+  package: Social Commerce
+  price: null
+  price_display: 'Preview: Coming in 2026'
+  currency: USD
+  period: month
+  quote_only: true
+  status: preview
+add_ons:
+- name: Additional Public Profiles
+  availability: Advanced and Intelligent tiers
+  price: null
+  note: Expanded public-profile benchmarking, sold as an add-on; price not published.
+discrepancy:
+  note: >-
+    Emplifi's own https://emplifi.io/llms.txt tells agents "Pricing is custom and
+    not publicly listed. Contact Emplifi for a quote based on platform modules
+    and brand size." The human pricing page contradicts that for two tiers,
+    publishing $1,249/mo and $2,499/mo starting prices. Recorded as observed —
+    the machine-readable file understates what the site publishes.
+  evidence:
+  - {url: 'https://emplifi.io/llms.txt', status: 200}
+  - {url: 'https://emplifi.io/pricing/', status: 200}

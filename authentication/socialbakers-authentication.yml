@@ -19,7 +19,7 @@ schemes:
     description: >-
       HTTP Basic authorization; credentials are the API token and secret
       base64-encoded as `token:secret`. Sent as `Authorization: Basic <base64>`.
-    sources: [openapi/socialbakers-emplifi-public-api-openapi.yml]
+    sources: [openapi/_original/socialbakers-emplifi-public-api-openapi.yml]
   - name: oauth2
     type: oauth2
     flows:
@@ -32,4 +32,4 @@ schemes:
       OAuth 2.0 authorization code flow. Register a Custom integration in
       Emplifi Settings to obtain client credentials, then exchange an
       authorization code for an access token.
-    sources: [openapi/socialbakers-emplifi-public-api-openapi.yml, https://api.emplifi.io/]
+    sources: [openapi/_original/socialbakers-emplifi-public-api-openapi.yml, https://api.emplifi.io/]

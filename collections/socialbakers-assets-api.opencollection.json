@@ -1,0 +1,199 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Emplifi (Socialbakers) Public Ads Assets API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List asset collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.emplifi.io/3/collections"
+          },
+          "docs": "List asset collections"
+        },
+        {
+          "info": {
+            "name": "Create an asset collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/collections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an asset collection"
+        },
+        {
+          "info": {
+            "name": "Edit an asset collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.emplifi.io/3/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit an asset collection"
+        },
+        {
+          "info": {
+            "name": "Delete an asset collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.emplifi.io/3/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier"
+              }
+            ]
+          },
+          "docs": "Delete an asset collection"
+        },
+        {
+          "info": {
+            "name": "Archive an asset collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/collections/:id/archive",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier"
+              }
+            ]
+          },
+          "docs": "Archive an asset collection"
+        },
+        {
+          "info": {
+            "name": "Restore an archived asset collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/collections/:id/restore",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier"
+              }
+            ]
+          },
+          "docs": "Restore an archived asset collection"
+        },
+        {
+          "info": {
+            "name": "List assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.emplifi.io/3/assets"
+          },
+          "docs": "List assets"
+        },
+        {
+          "info": {
+            "name": "Upload an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/assets/upload",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upload an asset"
+        },
+        {
+          "info": {
+            "name": "Edit an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.emplifi.io/3/assets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Edit an asset"
+        },
+        {
+          "info": {
+            "name": "Delete an asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.emplifi.io/3/assets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Resource identifier"
+              }
+            ]
+          },
+          "docs": "Delete an asset"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

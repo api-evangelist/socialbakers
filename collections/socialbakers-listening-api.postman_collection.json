@@ -1,0 +1,351 @@
+{
+  "item": [
+    {
+      "id": "bb7d5b34-1f13-41f7-8482-15a59dad1b25",
+      "name": "Listening",
+      "description": {
+        "content": "Social listening content and metrics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dde67568-9517-4443-b0cd-d33a0d28b238",
+          "name": "List social listening content",
+          "request": {
+            "name": "List social listening content",
+            "description": {},
+            "url": {
+              "path": [
+                "3",
+                "listening",
+                "content"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a5ed548-9ef2-4a2a-91a7-b8df54e383ec",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "listening",
+                    "content"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"header\": [\n    {\n      \"key_0\": \"string\"\n    },\n    {\n      \"key_0\": 9979.587580624086,\n      \"key_1\": 4079\n    }\n  ],\n  \"data\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0731b1d-0eac-42f5-a8b1-8cc497374bb6",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "listening",
+                    "content"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"errors\": [\n    {\n      \"code\": 4532,\n      \"errors\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"code\": 7816,\n      \"errors\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5bb0557f-ba0e-4c81-9acf-cce4d230eb2e",
+          "name": "Social listening metrics",
+          "request": {
+            "name": "Social listening metrics",
+            "description": {},
+            "url": {
+              "path": [
+                "3",
+                "listening",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"profiles\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"metrics\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"date_start\": \"<date>\",\n  \"date_end\": \"<date>\",\n  \"dimensions\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e8a11555-3e02-42eb-aa55-64fcfe9a282e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "listening",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"header\": [\n    {\n      \"key_0\": 596\n    },\n    {\n      \"key_0\": \"string\"\n    }\n  ],\n  \"data\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a41c24b-a8a0-4045-a1fb-a6cd3140c32c",
+              "name": "Authentication failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "listening",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"errors\": [\n    {\n      \"code\": 4991,\n      \"errors\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"code\": 4059,\n      \"errors\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55ef77d6-5844-4405-a517-fa2db898a828",
+              "name": "Rate limit exceeded (1000 req/hour account, 500 req/hour user)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "3",
+                    "listening",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"errors\": [\n    {\n      \"code\": 4532,\n      \"errors\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"code\": 7816,\n      \"errors\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.emplifi.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "86e22359-bc6e-4b7e-8260-e3d0ee682eab",
+    "name": "Emplifi (Socialbakers) Public Ads Listening API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Emplifi Public API (v3) — formerly the Socialbakers API — provides programmatic access to social media analytics, published content, profile and post metrics, community engagement, social listening, Facebook Ads, digital asset management (Assets), and customer care (Care) data across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat. Socialbakers rebranded to Emplifi in 2021; this API is the successor to the original Socialbakers Public API. Requests are authenticated with HTTP Basic auth (API token:secret) or OAuth 2.0 authorization code flow. Metrics and posts endpoints accept a JSON query body (profiles, metrics, date range) and return a `{ \"success\": true, ... }` envelope.\n\nContact Support:\n Name: Emplifi API Support",
+      "type": "text/plain"
+    }
+  }
+}

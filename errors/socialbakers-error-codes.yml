@@ -1,6 +1,6 @@
 generated: '2026-07-21'
 method: derived
-source: https://api.emplifi.io/ + openapi/socialbakers-emplifi-public-api-openapi.yml
+source: https://api.emplifi.io/ + openapi/_original/socialbakers-emplifi-public-api-openapi.yml
 format: custom-json
 envelope:
   shape: '{ "success": false, "errors": [ { "code": <int>, "errors": [<string>] } ] }'
@@ -23,22 +23,22 @@ http_problems:
     title: Authentication failed
     meaning: Missing or invalid Basic credentials / OAuth token.
     source_operations:
-      - openapi/socialbakers-emplifi-public-api-openapi.yml#listProfiles
-      - openapi/socialbakers-emplifi-public-api-openapi.yml#getFacebookMetrics
+      - openapi/_original/socialbakers-emplifi-public-api-openapi.yml#listProfiles
+      - openapi/_original/socialbakers-emplifi-public-api-openapi.yml#getFacebookMetrics
   - status: 400
     title: Input validation error
     meaning: Request body failed validation.
     source_operations:
-      - openapi/socialbakers-emplifi-public-api-openapi.yml#getFacebookMetrics
-      - openapi/socialbakers-emplifi-public-api-openapi.yml#createCollection
+      - openapi/_original/socialbakers-emplifi-public-api-openapi.yml#getFacebookMetrics
+      - openapi/_original/socialbakers-emplifi-public-api-openapi.yml#createCollection
   - status: 404
     title: Resource not found
     meaning: Referenced collection or asset id does not exist.
     source_operations:
-      - openapi/socialbakers-emplifi-public-api-openapi.yml#editCollection
-      - openapi/socialbakers-emplifi-public-api-openapi.yml#deleteAsset
+      - openapi/_original/socialbakers-emplifi-public-api-openapi.yml#editCollection
+      - openapi/_original/socialbakers-emplifi-public-api-openapi.yml#deleteAsset
   - status: 429
     title: Rate limit exceeded
     meaning: Hourly account (1000) or user (500) request quota exceeded.
     source_operations:
-      - openapi/socialbakers-emplifi-public-api-openapi.yml#getFacebookMetrics
+      - openapi/_original/socialbakers-emplifi-public-api-openapi.yml#getFacebookMetrics

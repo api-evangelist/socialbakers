@@ -1,0 +1,61 @@
+generated: '2026-08-13'
+method: searched
+probe: true
+url: https://emplifi.io/legal/trust-center/
+note: >-
+  Emplifi's trust centre is published at emplifi.io/legal/trust-center/ (linked
+  from the site navigation and from emplifi.io/llms.txt as "Security, Privacy &
+  AI"). The mechanical probe in 0-working/probe-security-programs.py missed it
+  because it only checks trust.<domain>, security.<domain> and
+  /trust|/security|/compliance — this one lives under /legal/. Certifications
+  below are read verbatim from the page's "Certifications & Compliance" list and
+  its security FAQ.
+certifications:
+- SOC 2 Type II
+- SOC 1 Type II
+- ISO 27001
+- PCI
+- GDPR
+- CCPA
+- EU-US Data Privacy Framework
+- UK extension to the EU-US Data Privacy Framework
+- Swiss-US Data Privacy Framework
+- EcoVadis Bronze Sustainability Rating
+practices:
+- name: Penetration testing
+  detail: >-
+    "Emplifi conducts comprehensive, annual penetration testing of its SaaS
+    offerings through CREST-certified, accredited external firms." Full pen-test
+    reports are not released to customers; Emplifi states the findings are
+    withheld for confidentiality and security reasons.
+- name: HIPAA
+  detail: >-
+    Not a certification. Emplifi states that where an organization requires HIPAA
+    compliance it offers "specific agreements and security measures" — a
+    contractual accommodation, not a published attestation.
+- name: Document centre
+  detail: >-
+    The trust centre hosts downloadable documents filterable by AI / ESG / Legal
+    / Privacy / Security, including the ISO certificate and an AI-in-Emplifi
+    document.
+contacts:
+  privacy: support@emplifi.io
+  note: >-
+    The trust centre names support@emplifi.io as the route to the Data
+    Protection Officer for privacy concerns. No security@ address, no bug bounty
+    programme and no responsible-disclosure policy is published anywhere on the
+    site — see security/socialbakers-vulnerability-disclosure (absent) and the
+    404s recorded in well-known/socialbakers-well-known.yml.
+evidence:
+- {source: 'https://emplifi.io/legal/trust-center/', http_status: 200, keywords: [SOC 2 Type II, ISO 27001, PCI, GDPR, trust center, penetration testing]}
+- {source: 'https://emplifi.io/llms.txt', http_status: 200, keywords: [Security Privacy & AI, trust-center]}
+related_legal:
+- {name: Legal hub, url: 'https://emplifi.io/legal/'}
+- {name: Privacy policy, url: 'https://emplifi.io/legal/privacy-policy/'}
+- {name: Product privacy policy, url: 'https://emplifi.io/legal/product-privacy-policy/'}
+- {name: Website terms of use, url: 'https://emplifi.io/legal/website-terms-of-use/'}
+- {name: EU Digital Services Act, url: 'https://emplifi.io/legal/eu-digital-services-act/'}
+- {name: Transparency report, url: 'https://emplifi.io/legal/transparency-report/'}
+- {name: Whistleblowing, url: 'https://emplifi.io/legal/whistleblowing/'}
+- {name: Report a violation (IP/legal only, ip_legal@emplifi.io), url: 'https://emplifi.io/legal/report-a-violation/'}
+- {name: Modern slavery statement, url: 'https://emplifi.io/legal/modern-slavery-statement/'}

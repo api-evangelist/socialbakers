@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Emplifi (Socialbakers) Public Ads Posts API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Posts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Facebook page posts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/facebook/page/posts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Facebook page posts"
+        },
+        {
+          "info": {
+            "name": "Instagram profile posts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/instagram/profile/posts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Instagram profile posts"
+        },
+        {
+          "info": {
+            "name": "YouTube profile videos",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/youtube/profile/videos",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "YouTube profile videos"
+        },
+        {
+          "info": {
+            "name": "X/Twitter profile tweets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/twitter/profile/tweets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "X/Twitter profile tweets"
+        },
+        {
+          "info": {
+            "name": "LinkedIn page posts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/linkedin/page/posts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "LinkedIn page posts"
+        },
+        {
+          "info": {
+            "name": "Pinterest profile posts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/pinterest/profile/posts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Pinterest profile posts"
+        },
+        {
+          "info": {
+            "name": "TikTok profile posts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/tiktok/profile/posts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "TikTok profile posts"
+        },
+        {
+          "info": {
+            "name": "Snapchat profile posts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/snapchat/profile/posts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Snapchat profile posts"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

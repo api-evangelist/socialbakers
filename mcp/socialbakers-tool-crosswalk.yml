@@ -1,0 +1,121 @@
+generated: '2026-08-13'
+method: derived
+source: mcp/socialbakers-mcp.yml + openapi/ (8 refined Emplifi Public API v3 specs)
+note: >-
+  Emplifi (Socialbakers) publishes NO MCP server and NO GraphQL endpoint. Every
+  row below binds a CANDIDATE tool from mcp/socialbakers-mcp.yml to the REST
+  operation it would wrap, so the candidate tool set is traceable to real
+  operationIds rather than invented ones. There is no provider-published tool
+  list to reconcile against, so `mcp_only` is empty by construction and the
+  crosswalk's real value here is the `rest_only` column: the 28 operations a
+  wrapper would have to add to reach full coverage of the published contract.
+surfaces:
+  openapi:
+    files:
+    - openapi/socialbakers-reference-api-openapi.yml
+    - openapi/socialbakers-profile-metrics-api-openapi.yml
+    - openapi/socialbakers-posts-api-openapi.yml
+    - openapi/socialbakers-assets-api-openapi.yml
+    - openapi/socialbakers-care-api-openapi.yml
+    - openapi/socialbakers-community-api-openapi.yml
+    - openapi/socialbakers-listening-api-openapi.yml
+    - openapi/socialbakers-ads-api-openapi.yml
+    gated: false
+    note: >-
+      The reference is public at https://api.emplifi.io/; calling the API
+      requires credentials issued by Emplifi Support per account.
+  graphql:
+    endpoint: null
+    note: No GraphQL surface is published.
+  mcp:
+    url: null
+    gated: null
+    note: No MCP server exists; tools/list could not be called against anything.
+crosswalk:
+- tool: list_profiles
+  category: reference
+  rest: [listProfiles]
+  binding: rest
+  confidence: high
+- tool: get_facebook_metrics
+  category: profile-metrics
+  rest: [getFacebookMetrics]
+  binding: rest
+  confidence: high
+- tool: get_instagram_metrics
+  category: profile-metrics
+  rest: [getInstagramMetrics]
+  binding: rest
+  confidence: high
+- tool: get_aggregated_metrics
+  category: profile-metrics
+  rest: [getAggregatedMetrics]
+  binding: rest
+  confidence: high
+- tool: get_facebook_posts
+  category: posts
+  rest: [getFacebookPosts]
+  binding: rest
+  confidence: high
+- tool: get_instagram_posts
+  category: posts
+  rest: [getInstagramPosts]
+  binding: rest
+  confidence: high
+- tool: get_listening_content
+  category: listening
+  rest: [getListeningContent]
+  binding: rest
+  confidence: high
+- tool: get_listening_metrics
+  category: listening
+  rest: [getListeningMetrics]
+  binding: rest
+  confidence: high
+- tool: get_community_content
+  category: community
+  rest: [getCommunityContent]
+  binding: rest
+  confidence: high
+- tool: list_collections
+  category: assets
+  rest: [listCollections]
+  binding: rest
+  confidence: high
+- tool: get_assets
+  category: assets
+  rest: [getAssets]
+  binding: rest
+  confidence: high
+- tool: get_care_cases
+  category: care
+  rest: [getCareCases]
+  binding: rest
+  confidence: high
+- tool: get_ads_metrics
+  category: ads
+  rest: [getAdsMetrics]
+  binding: rest
+  confidence: high
+mcp_only: []
+rest_only:
+- capability: profile metrics (remaining networks)
+  operations: [getTwitterMetrics, getYoutubeMetrics, getLinkedinMetrics, getPinterestMetrics, getTiktokMetrics]
+- capability: posts (remaining networks)
+  operations: [getYoutubeVideos, getTwitterTweets, getLinkedinPosts, getPinterestPosts, getTiktokPosts, getSnapchatPosts]
+- capability: reference data
+  operations: [getProfileLabels, getPostLabels, getPostLabelGroups, getListeningQueries, listAdAccounts]
+- capability: asset + collection writes
+  operations: [createCollection, editCollection, deleteCollection, archiveCollection, restoreCollection, uploadAsset, editAsset, deleteAsset]
+- capability: care messages
+  operations: [getCareMessages]
+- capability: community writes + metrics
+  operations: [labelCommunityContent, getCommunityMetrics]
+- capability: ads content
+  operations: [getAdsContent]
+coverage:
+  tools_named: 13
+  tools_bound: 13
+  mcp_only: 0
+  rest_operations_total: 41
+  rest_operations_with_tool: 13

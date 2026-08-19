@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Emplifi (Socialbakers) Public Ads Listening API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Listening",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List social listening content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.emplifi.io/3/listening/content"
+          },
+          "docs": "List social listening content"
+        },
+        {
+          "info": {
+            "name": "Social listening metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.emplifi.io/3/listening/metrics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Social listening metrics"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

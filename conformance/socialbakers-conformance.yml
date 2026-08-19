@@ -1,6 +1,6 @@
 generated: '2026-07-21'
 method: derived
-source: openapi/socialbakers-emplifi-public-api-openapi.yml + https://api.emplifi.io/
+source: openapi/_original/socialbakers-emplifi-public-api-openapi.yml + https://api.emplifi.io/
 standards:
   - id: oauth2
     conforms: true

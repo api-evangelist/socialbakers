@@ -43,3 +43,19 @@ rate_limiting:
   note: Hourly account (1000) and user (500) quotas; 429 on exceed.
 metadata:
   networks: [facebook, instagram, twitter, youtube, linkedin, pinterest, tiktok, snapchat]
+event_surface:
+  webhooks: false
+  asyncapi: false
+  checked: '2026-08-13'
+  note: >-
+    The Emplifi Public API v3 — the Socialbakers-lineage API this profile covers
+    — publishes NO webhook, streaming or event surface: it is poll-only, and the
+    only push-shaped mechanism in the docs is scheduled export. Emplifi does
+    document webhooks, but only for Emplifi Ratings & Reviews, which is the
+    acquired TurnTo product served from api.turnto.com and documented at
+    developers.turnto.com. That is a different product line on a different host
+    from a different acquisition, so it is deliberately NOT recorded as an event
+    surface for this API and no `Webhooks` pointer is emitted here.
+  evidence:
+  - {url: 'https://docs.emplifi.io/platform/latest/home/emplifi-ratings-and-reviews-webhooks.md', status: 200, note: 'Ratings & Reviews (TurnTo) webhooks — different product line'}
+  - {url: 'https://api.emplifi.io/', status: 200, note: 'Public API v3 reference — no webhook/event section among its 129 anchors'}

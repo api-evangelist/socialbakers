@@ -1,0 +1,82 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://api.github.com/orgs/Emplifi/repos (8 public repos) +
+  registry.npmjs.org + pypi.org + registry search
+docs: https://api.emplifi.io/
+summary:
+  official_sdk_count: 0
+  note: >-
+    Emplifi (successor to Socialbakers) publishes NO first-party client SDK on
+    any package registry. Probed npm (`emplifi`, `@emplifi/sdk`, `emplifi-api`,
+    `socialbakers`, `socialbakers-api` — all 404), PyPI (`emplifi` 404), and the
+    Emplifi GitHub organization. The only first-party API client the company has
+    ever published is a Tableau Web Data Connector, distributed from GitHub
+    rather than a registry, and it was ARCHIVED in 2024 while still describing
+    the retired `api.socialbakers.com` host. The two registry packages that name
+    Emplifi are third-party. No SDKs pointer is emitted for this provider
+    because no first-party client library exists.
+packages:
+- language: javascript
+  registry: github
+  name: Emplifi/public-api-tableau-wdc
+  url: https://github.com/Emplifi/public-api-tableau-wdc
+  install: git clone https://github.com/Emplifi/public-api-tableau-wdc
+  official: true
+  kind: connector
+  version: null
+  published: null
+  archived: true
+  note: >-
+    First-party Tableau Community Connector published by the Emplifi GitHub
+    organization. Distributed as source from GitHub only — there is no registry
+    metadata endpoint to read a version or release date from, so both fields are
+    recorded null after checking. The repository is ARCHIVED (read-only, last
+    pushed 2024-05-30) and its description still points at the retired
+    `api.socialbakers.com` host, which is the clearest published decay signal on
+    this provider's client surface.
+- language: javascript
+  registry: npm
+  name: empli-embed
+  url: https://www.npmjs.com/package/empli-embed
+  install: npm install empli-embed
+  official: false
+  version: 1.0.1-alpha.1.32
+  published: '2024-04-18'
+  note: >-
+    "JavaScript library for embedding widgets via Emplifi Public API." Published
+    by npm user `m1lnes` with no repository, homepage or organization scope
+    linking it to Emplifi, and never left the alpha channel — treated as
+    third-party, not a first-party SDK.
+- language: javascript
+  registry: npm
+  name: '@ts-flow/emplifi'
+  url: https://www.npmjs.com/package/@ts-flow/emplifi
+  install: npm install @ts-flow/emplifi
+  official: false
+  version: 2.0.3
+  published: '2025-04-11'
+  note: >-
+    Third-party ts-flow nodes that call Emplifi APIs
+    (github.com/paulingalls/ts-flow). Not published by Emplifi.
+- language: python
+  registry: pypi
+  name: socialbakers
+  url: https://pypi.org/project/socialbakers/
+  install: pip install socialbakers
+  official: false
+  version: 1.0.0
+  published: '2020-05-27'
+  note: >-
+    "This Wrapper for Socialbaker API" by Juan Lopez
+    (github.com/juanpalopez/socialbakers). Community wrapper for the pre-Emplifi
+    Socialbakers API, last released 2020 — predates the v3 API it would wrap.
+registries_checked:
+- {registry: npm, result: no first-party package}
+- {registry: pypi, result: no first-party package}
+- {registry: rubygems, result: not checked — provider ships no Ruby client}
+- {registry: maven-central, result: not checked — provider ships no JVM client}
+- {registry: nuget, result: not checked — provider ships no .NET client}
+- {registry: packagist, result: not checked — provider ships no PHP client}
+- {registry: crates.io, result: not checked — provider ships no Rust client}
+- {registry: pkg.go.dev, result: not checked — provider ships no Go client}

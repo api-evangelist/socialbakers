@@ -1,12 +1,16 @@
-generated: '2026-07-21'
+generated: '2026-08-13'
 method: generated
-source: openapi/socialbakers-emplifi-public-api-openapi.yml
+source: openapi/ (Emplifi Public API v3 — every operationId below verified in the spec)
 skills:
   - file: socialbakers-profile-metrics.md
     name: Pull social profile metrics
-    api: openapi/socialbakers-emplifi-public-api-openapi.yml
+    api: openapi/_original/socialbakers-emplifi-public-api-openapi.yml
     operations: [listProfiles, getFacebookMetrics, getInstagramMetrics, getAggregatedMetrics]
   - file: socialbakers-list-posts.md
     name: Retrieve published posts with pagination
-    api: openapi/socialbakers-emplifi-public-api-openapi.yml
+    api: openapi/_original/socialbakers-emplifi-public-api-openapi.yml
     operations: [listProfiles, getFacebookPosts, getInstagramPosts, getTwitterTweets]
+  - file: socialbakers-manage-assets.md
+    name: Manage digital asset collections
+    api: openapi/socialbakers-assets-api-openapi.yml
+    operations: [listCollections, createCollection, uploadAsset, getAssets, editAsset, archiveCollection, restoreCollection, deleteCollection, deleteAsset]
