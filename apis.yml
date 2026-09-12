@@ -269,6 +269,8 @@ apis:
   - type: Conformance
     url: conformance/socialbakers-conformance.yml
 common:
+- type: Website
+  url: https://www.emplifi.io/
 - type: AgenticAccess
   url: agentic-access/socialbakers-agentic-access.yml
 - type: X-MCPServerCandidate
