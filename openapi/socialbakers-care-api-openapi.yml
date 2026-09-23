@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Emplifi (Socialbakers) Public Ads Care API
+  title: Emplifi (Socialbakers) Public Care API
   version: '3'
-  description: 'The Emplifi Public API (v3) — formerly the Socialbakers API — provides programmatic access to social media analytics, published content, profile and post metrics, community engagement, social listening, Facebook Ads, digital asset management (Assets), and customer care (Care) data across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat. Socialbakers rebranded to Emplifi in 2021; this API is the successor to the original Socialbakers Public API. Requests are authenticated with HTTP Basic auth (API token:secret) or OAuth 2.0 authorization code flow. Metrics and posts endpoints accept a JSON query body (profiles, metrics, date range) and return a `{ "success": true, ... }` envelope.'
+  description: The Emplifi Public API (v3) — formerly the Socialbakers API — provides programmatic access to social media analytics, published content, profile and post metrics, community engagement, social listening, Facebook Ads, digital asset management (Assets), and customer care (Care) data across Facebook, Instagram, X/Twitter, YouTube, LinkedIn, Pinterest, TikTok and Snapchat.
   contact:
     name: Emplifi API Support
     url: https://api.emplifi.io/
@@ -43,34 +43,7 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Unauthorized:
-      description: Authentication failed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorEnvelope'
-    Success:
-      description: Successful response
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SuccessEnvelope'
   schemas:
-    SuccessEnvelope:
-      type: object
-      properties:
-        success:
-          type: boolean
-          const: true
-        header:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        data: {}
-      required:
-      - success
     ErrorEnvelope:
       type: object
       properties:
@@ -91,6 +64,33 @@ components:
       required:
       - success
       - errors
+    SuccessEnvelope:
+      type: object
+      properties:
+        success:
+          type: boolean
+          const: true
+        header:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        data: {}
+      required:
+      - success
+  responses:
+    Success:
+      description: Successful response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SuccessEnvelope'
+    Unauthorized:
+      description: Authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorEnvelope'
   securitySchemes:
     basicAuth:
       type: http

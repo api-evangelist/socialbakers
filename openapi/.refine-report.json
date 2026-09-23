@@ -1,14 +1,7 @@
 {
   "provider": "socialbakers",
   "sources": [
-    "socialbakers-ads-api-openapi.yml",
-    "socialbakers-assets-api-openapi.yml",
-    "socialbakers-care-api-openapi.yml",
-    "socialbakers-community-api-openapi.yml",
-    "socialbakers-listening-api-openapi.yml",
-    "socialbakers-posts-api-openapi.yml",
-    "socialbakers-profile-metrics-api-openapi.yml",
-    "socialbakers-reference-api-openapi.yml"
+    "_original/socialbakers-emplifi-public-api-openapi.yml"
   ],
   "outputs": [
     "socialbakers-ads-api-openapi.yml",
@@ -23,6 +16,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "socialbakers-emplifi-public-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "socialbakers-ads-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "socialbakers-assets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "socialbakers-care-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "socialbakers-community-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "socialbakers-listening-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "socialbakers-posts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "socialbakers-profile-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "socialbakers-reference-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

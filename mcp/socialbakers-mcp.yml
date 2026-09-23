@@ -2,23 +2,18 @@ generated: '2026-08-13'
 method: derived
 status: candidate
 source: openapi/ (8 refined Emplifi Public API v3 specs)
-note: >-
-  No official hosted/remote MCP server was found for the Emplifi (Socialbakers)
-  Public API. Searched the Emplifi GitHub organization (8 public repos, none
-  MCP-related), npm (`emplifi`, `@emplifi/*`, `socialbakers` — all absent), the
-  Emplifi documentation centre (docs.emplifi.io/llms.txt indexes 1,000+ pages;
-  zero mention of MCP or Model Context Protocol) and the API reference at
-  api.emplifi.io. This is a candidate tool list derived from the OpenAPI
-  operations so an agent could wrap the API; it is NOT published by the
-  provider and no endpoint is asserted.
+note: No official hosted/remote MCP server was found for the Emplifi (Socialbakers) Public API. Searched
+  the Emplifi GitHub organization (8 public repos, none MCP-related), npm (`emplifi`, `@emplifi/*`, `socialbakers`
+  — all absent), the Emplifi documentation centre (docs.emplifi.io/llms.txt indexes 1,000+ pages; zero
+  mention of MCP or Model Context Protocol) and the API reference at api.emplifi.io. This is a candidate
+  tool list derived from the OpenAPI operations so an agent could wrap the API; it is NOT published by
+  the provider and no endpoint is asserted.
 deployment:
   mode: none
-  auth: unknown
   verified: derived
-  note: >-
-    Nobody ships an MCP server for this API — neither a remote endpoint nor a
-    stdio package. `mode: none` records a derived candidate, not a reachable
-    agent surface.
+  tools: 10
+  checked: '2026-08-12'
+  source: catalog MCP census
 server:
   name: socialbakers-emplifi
   transport: stdio
